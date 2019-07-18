@@ -1,15 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Chip, H4, Icon, Paragraph, Table } from 'cobalt-react-components';
+import { Chip, H4, Icon, Paragraph, Table } from 'cobalt-react-components';
 import getMajorVersion from '../helpers/getMajorVersion'
 import '../styles.css';
-
-const COBALT_VERSION = '27.0.0'
+import { projects } from '../api/index';
 
 const onSortDirectionChange = () => {} // TO DO
 
-const RepoRow = ({title, description, link, repoVersion}) => {
-  const versionLag = getMajorVersion(COBALT_VERSION) - getMajorVersion(repoVersion);
+const RepoRow = ({title, description, link, repoVersion, repoLink}) => {
+  const versionLag = getMajorVersion(window.COBALT_VERSION) - getMajorVersion(repoVersion);
 
   const statusProps = (versionLag) => (
     {
@@ -38,9 +37,9 @@ const RepoRow = ({title, description, link, repoVersion}) => {
       </Table.Data>
       <Table.ActionData>
         <Chip {...statusProps(versionLag)}>{stateText}</Chip>
-        <Button small>
+        <a href={repoLink} className="co-button co--small" target="_blank" rel="noopener noreferrer">
           <Icon name={Icon.OPEN_IN_NEW} />
-        </Button>
+        </a>
         <Link to={link} className='co-button co--primary co--small co--invert'>View details</Link>
       </Table.ActionData>
     </Table.Row>
@@ -63,36 +62,20 @@ const HomeTable = () => {
         </Table.Row>
       </Table.Head>
       <Table.Body>
-        <RepoRow
-          title='Repo 1'
-          description='Description 1'
-          link='#'
-          repoVersion='27.0.0'
-        />
-        <RepoRow
-          title='Repo 2'
-          description='Description 2'
-          link='#'
-          repoVersion='26.0.0'
-        />
-        <RepoRow
-          title='Repo 3'
-          description='Description 3'
-          link='#'
-          repoVersion='25.0.0'
-        />
-        <RepoRow
-          title='Repo 4'
-          description='Description 4'
-          link='#'
-          repoVersion='24.0.0'
-        />
-        <RepoRow
-          title='Repo 5'
-          description='Description 5'
-          link='#'
-          repoVersion='23.0.0'
-        />
+        {
+          projects.map((proj, index) => {
+            return (
+              <RepoRow
+              title={proj.projectName}
+              description='Description 1'
+              link={`project-components/${proj.repoPartial}`}
+              repoLink={proj.repoLink}
+              repoVersion={proj.cobaltReactVersion}
+              key={index}
+              />
+            )
+          })
+        }
       </Table.Body>
     </Table>
   );

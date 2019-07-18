@@ -18,7 +18,7 @@ const HomeHeader = () => {
           Cobalt Current Version<br />
           <Chip success large>
             <Icon name={Icon.OFFER}></Icon>
-            v27.0.0
+            {`v${window.COBALT_VERSION}`}
           </Chip>
         </Text>
       </Header.Actions>
