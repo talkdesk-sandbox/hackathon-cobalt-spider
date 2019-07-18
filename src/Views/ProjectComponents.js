@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles.css';
 
-function ProjectComponents() {
+const ProjectComponents = () => {
   return (
     <div className="cs-component-list">
       ProjectComponents
