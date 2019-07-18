@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import CobaltRoot from 'cobalt-react-components';
-import Home from './Views/Dashboard';
+import Home from './Views/Home';
 import ProjectComponents from './Views/ProjectComponents';
 import './index.css';
 import { BrowserRouter, Route } from 'react-router-dom';
