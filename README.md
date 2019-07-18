@@ -2,7 +2,7 @@
 Compare your Cobalt dependencies with Cobalt's latest version
 
 ## Feedback
-Please file issues and pull requests against that repository. Only pull-requests that follow our styling guide will be accepted.
+Please file issues and pull requests against that repo. Only pull-requests that follow our styling guide will be accepted.
 
 --
 
