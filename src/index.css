@@ -1,1 +1,28 @@
+.co-page__content {
+  flex: 1;
+  overflow: hidden;
+}
 
+.cs--scroll-hack {
+  height: calc(100vh - 113px);
+  overflow-y: auto;
+}
+
+.cs--scroll-hack-sidebar {
+  height: calc(100vh - 113px);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  overflow-y: auto;
+}
+
+.cs--scroll-hack-sidebar::-webkit-scrollbar-thumb {
+  background: #D7DBDE;
+  border-radius: 13px;
+  border: 3px solid #FFFFFF;
+}
+.cs--scroll-hack-sidebar::-webkit-scrollbar {
+  width: 0.8em;
+}
+.cs--scroll-hack-sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
