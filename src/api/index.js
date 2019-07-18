@@ -5,7 +5,7 @@ const API_URL = 'https://api.github.com/';
 const CO_REACT_VERSION_REPO = 'cobalt-react-components';
 const GITHUB_OAUTH_TOKEN = 'e68416cb10d3e6b847d331940f6636ae2a0abb43';
 const defaultPlaceholderVersions = {
-  cobaltReactLatestVersion: '0.0.0'
+  cobaltReactLatestVersion: '27.0.0'
 };
 
 const repoURLGenerator = (repo) => {
