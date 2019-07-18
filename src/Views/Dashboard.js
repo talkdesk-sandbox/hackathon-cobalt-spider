@@ -1,11 +1,10 @@
 import React from 'react';
-import logo from '../logo.svg';
 import '../styles.css';
 
 function Home() {
   return (
-    <div>
-     repo
+    <div className="cs-dashboard">
+      dashboard
     </div>
   );
 }

@@ -1,30 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CobaltRoot, { Button } from 'cobalt-react-components';
-import Home from './Views/Home';
-import Repo from './Views/Repo';
+import CobaltRoot from 'cobalt-react-components';
+import Home from './Views/Dashboard';
+import ProjectComponents from './Views/ProjectComponents';
 import './index.css';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <CobaltRoot>
     <BrowserRouter>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/repo">About</Link>
-          </li>
-        </ul>
-      </nav>
-      <div>
-        <Route exact path="/" component={Home}/>
-        <Route exact path="/repo/" component={Repo}/>
-        <Button primary onClick={() => {}}>Yeye</Button>
-      </div>
+      <Route exact path="/" component={Home}/>
+      <Route exact path="/project-components/" component={ProjectComponents}/>
     </BrowserRouter>
   </CobaltRoot>,
   document.getElementById('root')
