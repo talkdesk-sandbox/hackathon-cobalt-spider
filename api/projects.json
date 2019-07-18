@@ -1,0 +1,107 @@
+{
+  "cobaltReactLatestVersion": "27.0.0",
+  "projects": [
+    {
+      "projectName": "App Connect - Marketplace",
+      "cobaltReactVersion": "4.4.3",
+      "cobaltDesignVersion": "4.1.4",
+      "packageLink": "https://github.com/Talkdesk/marketplace-ui/blob/v0.9.1/package.json#L139"
+    },
+    {
+      "projectName": "App Connect - Marketplace-UI (Launcher and Wizard)",
+      "cobaltReactVersion": "22.0.0",
+      "cobaltDesignVersion": "21.0.0",
+      "packageLink": "https://github.com/Talkdesk/marketplace-ui/blob/master/package.json#L140"
+    },
+    {
+      "projectName": "App Connect - Developer Portal Frontend (OAuth Clients List Frontend)",
+      "cobaltReactVersion": "19.1.0",
+      "cobaltDesignVersion": "17.1.0",
+      "packageLink": "https://github.com/Talkdesk/developer-portal-frontend/blob/master/package.json#L145"
+    },
+    {
+      "projectName": "App Connect - Developer Portal Backend",
+      "cobaltReactVersion": "",
+      "cobaltDesignVersion": "18.0.0",
+      "packageLink": "https://github.com/Talkdesk/developer-portal-backend/blob/master/config/application.rb#L38"
+    },
+    {
+      "projectName": "App Connect - My Apps (Partner's Apps List Frontend)",
+      "cobaltReactVersion": "18.0.0",
+      "cobaltDesignVersion": "16.0.0",
+      "packageLink": "https://github.com/Talkdesk/developer-portal-apps-ui/blob/master/package.json#L101"
+    },
+    {
+      "projectName": "Studio (CXM)",
+      "cobaltReactVersion": "27.0.0",
+      "cobaltDesignVersion": "24.0.0",
+      "packageLink": "https://github.com/Talkdesk/cxm-ui/blob/master/package.json#L12"
+    },
+    {
+      "projectName": "Studio Backoffice",
+      "cobaltReactVersion": "21.1.1",
+      "cobaltDesignVersion": "19.0.3",
+      "packageLink": "https://github.com/Talkdesk/studio-backoffice-ui/blob/master/package.json#L8"
+    },
+    {
+      "projectName": "Invoices (Billing)",
+      "cobaltReactVersion": "4.5.0",
+      "cobaltDesignVersion": "4.1.1",
+      "packageLink": "https://github.com/Talkdesk/billing-ui/blob/1.1.3/package.json#L86"
+    },
+    {
+      "projectName": "Main Navbar UI",
+      "cobaltReactVersion": "5.0.0",
+      "cobaltDesignVersion": "5.0.0",
+      "packageLink": "https://github.com/Talkdesk/main-navbar-ui/blob/v0.1.0/package.json#L8"
+    },
+    {
+      "projectName": "Reporting Explore UI",
+      "cobaltReactVersion": "24.0.1",
+      "cobaltDesignVersion": "21.7.0",
+      "packageLink": "https://github.com/Talkdesk/reporting-explore-ui/blob/master/package.json#L32"
+    },
+    {
+      "projectName": "Reporting Live Dashboards UI",
+      "cobaltReactVersion": "26.0.0",
+      "cobaltDesignVersion": "23.0.0",
+      "packageLink": "https://github.com/Talkdesk/reporting-live-dashboards-ui/blob/master/package.json#L28"
+    },
+    {
+      "projectName": "Talkdesk ID",
+      "cobaltReactVersion": "18.0.0",
+      "cobaltDesignVersion": "16.0.0",
+      "packageLink": "https://github.com/Talkdesk/talkdesk-id-ui/blob/v1.2.4/package.json#L68"
+    },
+    {
+      "projectName": "Talkdesk Login ID",
+      "cobaltReactVersion": "18.0.0",
+      "cobaltDesignVersion": "16.0.0",
+      "packageLink": "https://github.com/Talkdesk/talkdesk-id-login-ui/blob/v2.4.3/package.json#L144"
+    },
+    {
+      "projectName": "Talkdesk Live (Metrics)",
+      "cobaltReactVersion": "15.0.0",
+      "cobaltDesignVersion": "11.0.0",
+      "packageLink": "https://github.com/Talkdesk/metrics_dashboard/blob/v1.26.4/package.json#L74"
+    },
+    {
+      "projectName": "Teams",
+      "cobaltReactVersion": "13.0.0",
+      "cobaltDesignVersion": "9.2.1",
+      "packageLink": "https://github.com/Talkdesk/teams-ui/blob/v0.3.1/package.json#L88"
+    },
+    {
+      "projectName": "Trials Manager",
+      "cobaltReactVersion": "18.0.0",
+      "cobaltDesignVersion": "16.0.0",
+      "packageLink": "https://github.com/Talkdesk/developer-portal-apps-ui/blob/master/package.json#L101"
+    },
+    {
+      "projectName": "Voicemails",
+      "cobaltReactVersion": "4.1.0",
+      "cobaltDesignVersion": "4.0.0",
+      "packageLink": "https://github.com/Talkdesk/voicemails-frontend/blob/v1.8.1/package.json#L109"
+    }
+  ]
+}

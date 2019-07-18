@@ -1,4 +1,4 @@
-# hackathon-cobalt-spider
+# CO-SPIDER
 Compare your Cobalt dependencies with Cobalt's latest version
 
 ## Feedback
