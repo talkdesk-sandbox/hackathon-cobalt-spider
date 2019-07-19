@@ -84,7 +84,6 @@ const ChangeLog = {
   }
 }
 
-
 const logEntry = (entry, index)=> {
   const {msg, version} = entry
   const TAG_LINK = `https://github.com/Talkdesk/cobalt-react-components/releases/tag/${version}`
