@@ -1,21 +1,28 @@
 import React from 'react';
-import { Color, Grid, Page } from 'cobalt-react-components';
+import { Color, EmptyWidget, Grid, Icon, Loader, Page } from 'cobalt-react-components';
 import HomeHeader from '../Modules/HomeHeader';
 import HomeToolbar from '../Modules/HomeToolbar';
 import HomeTable from '../Modules/HomeTable';
 import '../styles.css';
 import { projectAPI, repoAPI } from '../api/index';
 
+function getPackageVersion(deps) {
+  return deps && deps.hasOwnProperty('cobalt-react-components')
+    ? deps['cobalt-react-components']
+    : null;
+}
+
 function getVersion(data) {
-  // const { devDependencies } = JSON.parse(window.atob(data.content));
+  const { devDependencies, dependencies } = JSON.parse(window.atob(data.content));
 
-  return '27.0.0';
+  let devVersion = getPackageVersion(devDependencies);
+  let depVersion = getPackageVersion(dependencies);
 
-  // if (!devDependencies) return null;
-
-  // return devDependencies.hasOwnProperty('cobalt-react-components')
-  //   ? devDependencies['cobalt-react-components']
-  //   : null;
+  return devVersion
+    ? devVersion
+    : depVersion
+      ? depVersion
+      : '27.0.0';// TODO: change to null
 }
 
 class Home extends React.Component {
@@ -26,7 +33,10 @@ class Home extends React.Component {
   }
 
   getInitialState = () => {
-    return { projects: [] };
+    return {
+      projects: [],
+      isLoading: true
+    };
   }
 
   getProjectList = () => {
@@ -52,7 +62,7 @@ class Home extends React.Component {
   }
 
   setProjectListState = (projects) => {
-    this.setState({ projects });
+    this.setState({ projects, isLoading: false });
   }
 
   componentDidMount() {
@@ -63,11 +73,32 @@ class Home extends React.Component {
     return (
       <Page backgroundColor={Color.background.gray[200]}>
         <HomeHeader />
-        <HomeToolbar />
+        <HomeToolbar projects={this.state.projects} />
         <Page.Content>
-          <Grid fullWidth>
-            <HomeTable projects={this.state.projects} />
-          </Grid>
+          {
+            this.state.isLoading
+            ? (
+              <div className="co--push-center" style={{ height: '100%' }}>
+                <Loader large>Loading...</Loader>
+              </div>
+            )
+            : ( this.state.projects.length !== 0
+              ? (
+                <Grid fullWidth>
+                  <HomeTable projects={this.state.projects} />
+                </Grid>
+              )
+              : (
+                <div className="co--push-center" style={{ height: '100%' }}>
+                  <EmptyWidget
+                    title='Oops!'
+                    message={`You either don\'t have the correct Github permissions or projects using Cobalt-React-Components.`}>
+                    <Icon name={Icon.CLOSE_OUTLINE} large color={Color.gray[500]} />
+                  </EmptyWidget>
+                </div>
+              )
+            )
+          }
         </Page.Content>
       </Page>
     );

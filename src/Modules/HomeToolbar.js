@@ -6,12 +6,12 @@ const onSearch = () => {} // TODO
 
 const onClick = () => {} // TODO
 
-const HomeToolbar = () => {
+const HomeToolbar = ({ projects = [] }) => {
   return (
     <Toolbar backgroundColor={Color.background.gray[100]}>
       <Grid.Group horizontalGutters={Grid.Group.HALF_HORIZONTAL_GUTTERS}>
         <Grid.Column pushVcenter>
-          <Paragraph><strong>5</strong> applications</Paragraph>
+          <Paragraph><strong>{projects.length}</strong> applications</Paragraph>
         </Grid.Column>
         <Grid.Column all='min'>
           <Search
