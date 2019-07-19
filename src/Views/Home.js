@@ -4,7 +4,7 @@ import HomeHeader from '../Modules/HomeHeader';
 import HomeToolbar from '../Modules/HomeToolbar';
 import HomeTable from '../Modules/HomeTable';
 import '../styles.css';
-import { projectAPI, repoAPI } from '../api/index';
+import { projectAPI, repoAPI, userReposAPI } from '../api/index';
 
 function getPackageVersion(deps) {
   return deps && deps.hasOwnProperty('cobalt-react-components')
@@ -32,41 +32,53 @@ class Home extends React.Component {
     this.state = this.getInitialState();
   }
 
+  validProjects = []
+
   getInitialState = () => {
     return {
       projects: [],
-      isLoading: true
+      isLoading: true,
+      page: 1
     };
   }
 
-  getProjectList = () => {
-    projectAPI.then((projs) => {
-      let validProjects = [];
+  buildProjectList = (index) => {
+    userReposAPI({
+      type: 'all',
+      page: index.toString()
+    })
+      .then((projs) => {
+        projs.forEach((proj) => {
+          repoAPI('Talkdesk', proj.name).getContents('master', 'package.json')
+          .then(({ data }) => {
+            let version = getVersion(data);
 
-      projs.forEach((proj) => {
-        repoAPI('Talkdesk', proj.name).getContents('master', 'package.json')
-        .then(({ data }) => {
-          let version = getVersion(data);
+            if (!version) return;
 
-          if (!version) return;
+            proj.cobalt_version = getVersion(data);
+            this.validProjects.push(proj);
+            this.setProjectListState(this.validProjects);
 
-          proj.cobalt_version = getVersion(data);
-          validProjects.push(proj);
-          this.setProjectListState(validProjects);
-        }, (err) => {
-          console.log(err);
-          proj.cobalt_version = '0.0.0';
-        });
+            // if (projs.length === 100) this.buildProjectList(index+1);
+          }, (err) => {
+            console.log(err);
+            proj.cobalt_version = '0.0.0';
+          });
       });
     })
   }
 
+  getProjectList = () => {
+    this.buildProjectList(1);
+  }
+
   setProjectListState = (projects) => {
     this.setState({ projects, isLoading: false });
+    window.COBALT_PROJECTS = projects;
   }
 
   componentDidMount() {
-    this.getProjectList();
+    this.getProjectList(1);
   }
 
   render() {
