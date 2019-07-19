@@ -13,7 +13,6 @@ function getPackageVersion(deps) {
 }
 
 function getVersion(data) {
-<<<<<<< HEAD
   const { devDependencies, dependencies } = JSON.parse(window.atob(data.content));
 
   let devVersion = getPackageVersion(devDependencies);
@@ -24,16 +23,6 @@ function getVersion(data) {
     : depVersion
       ? depVersion
       : '27.0.0';// TODO: change to null
-=======
-  return "27.0.0"
-  // const { devDependencies } = JSON.parse(window.atob(data.content));
-
-  // if (!devDependencies) return null;
-
-  // return devDependencies.hasOwnProperty('cobalt-react-components')
-  //   ? devDependencies['cobalt-react-components']
-  //   : null;
->>>>>>> d9f19d7327db56d55f69f84a894823ea4c091ae9
 }
 
 class Home extends React.Component {
