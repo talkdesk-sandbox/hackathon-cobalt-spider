@@ -30,7 +30,7 @@ class ProjectComponents extends React.Component  {
     this.state = {
       cobaltCurrentVersion: '27.0.0',
       CompListStatus: processComponentStatus(components, changeLog),
-      selected: components[0],
+      selected: components[6],
       project: {}
     }
   }
@@ -92,12 +92,14 @@ class ProjectComponents extends React.Component  {
                 </Grid.Column>
                 <Grid.Column all='70'>
                   <div className="cs--scroll-hack co--bg-gray-200">
-                    <Grid fullWidth>
-                      <ComponentLog
-                        selected={this.state.selected}
-                        changeLog={changeLog}
-                        compStatus={CompListStatus}/>
-                    </Grid>
+                    <div className="cs-hack-height-component-list">
+                      <Grid fullWidth>
+                        <ComponentLog
+                          selected={this.state.selected}
+                          changeLog={changeLog}
+                          compStatus={CompListStatus}/>
+                      </Grid>
+                    </div>
                   </div>
                 </Grid.Column>
               </Grid.Group>

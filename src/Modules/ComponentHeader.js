@@ -1,5 +1,5 @@
 import React from 'react';
-import { Chip, Icon, H1, Header, Paragraph, Image, Media } from 'cobalt-react-components';
+import { Chip, H1, Header, Paragraph, Image, Media } from 'cobalt-react-components';
 import getMajorVersion from '../helpers/getMajorVersion'
 import '../styles.css';
 
@@ -38,7 +38,6 @@ const ComponentHeader = ({ appName, description, repoVersion }) => {
           Current Version
           </p>
           <Chip info>
-            <Icon name={Icon.OFFER}></Icon>
             {`v${window.COBALT_VERSION}`}
           </Chip>
         </Media>

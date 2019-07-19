@@ -47,7 +47,7 @@ const RepoRow = ({title, description, link, repoVersion, repoLink}) => {
 
 const HomeTable = ({ projects = [] }) => {
   return (
-    <Table lightBubbleRows sortable hoverRows>
+    <Table lightBubbleRows hoverRows>
       <Table.Head>
         <Table.Row>
           <Table.Header

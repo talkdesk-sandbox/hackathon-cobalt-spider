@@ -1,5 +1,5 @@
 import React from 'react';
-import { Chip, Icon, H1, Header, Paragraph, Image, Media } from 'cobalt-react-components';
+import { Chip, H1, Header, Paragraph, Image, Media } from 'cobalt-react-components';
 import '../styles.css';
 
 const HomeHeader = () => {
@@ -7,7 +7,7 @@ const HomeHeader = () => {
     <Header>
       <Header.Heading>
         <Header.Title>
-          <H1>Spider Apps</H1>
+          <H1>Cobalt Spider</H1>
         </Header.Title>
         <Header.Description>
           <Paragraph>Centralized place to view which projects are using Cobalt Design, the version they're on, which components are (or not) up-to-date.</Paragraph>
@@ -24,7 +24,6 @@ const HomeHeader = () => {
         Current Version
         </p>
         <Chip info>
-          <Icon name={Icon.OFFER}></Icon>
           {`v${window.COBALT_VERSION}`}
         </Chip>
       </Media>
