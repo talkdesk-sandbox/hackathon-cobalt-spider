@@ -2,7 +2,7 @@ import GitHub from 'github-api';
 
 // const CO_REACT_VERSION_REPO = 'cobalt-react-components';
 // const GITHUB_OAUTH_TOKEN = '80bb6ce8fd5768401637ad491fae34cfee65c2bd';
-const GITHUB_OAUTH_TOKEN = '7af31762623158a8eabfc0d56c119df83cfe7dcb';
+const GITHUB_OAUTH_TOKEN = '';
 // const defaultPlaceholderVersions = {
 //   cobaltReactLatestVersion: '27.0.0'
 // };
