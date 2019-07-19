@@ -1,5 +1,14 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+## Authentication
+
+Create an 'app-env' file in the home directory with content:
+
+'GITHUB_OAUTH_TOKEN="XXXXXXXXXXXXXXXXXXXXXXXXXXX'
+
+Where XXXXXX... is a newly generated [Github Personal Access Token](https://github.com/settings/tokens); 
+
 ## Available Scripts
 
 In the project directory, you can run:
