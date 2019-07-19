@@ -42,3 +42,8 @@
 .cs--scroll-hack-list::-webkit-scrollbar-track {
   background: transparent;
 }
+
+.cs-hack-height-component-list {
+  display: flex;
+  height: calc(100% - 90px);
+}
