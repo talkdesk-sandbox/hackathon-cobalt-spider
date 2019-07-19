@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, H1, EmptyWidget, Color, Icon } from 'cobalt-react-components';
+import { Header, H2, EmptyWidget, Color, Icon } from 'cobalt-react-components';
 import CardBuilder from '../Modules/CardBuilder';
 
 
@@ -15,7 +15,7 @@ const ComponentLog = ({selected, changeLog, compStatus }) => {
           <Header borderless transparent>
             <Header.Heading>
               <Header.Title>
-                <H1>{selected}</H1>
+                <H2>{selected}</H2>
               </Header.Title>
             </Header.Heading>
           </Header>
