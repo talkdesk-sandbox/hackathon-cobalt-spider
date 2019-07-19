@@ -59,7 +59,6 @@ class Home extends React.Component {
             this.validProjects.push(proj);
             this.setProjectListState(this.validProjects);
 
-            // if (projs.length === 100) this.buildProjectList(index+1);
           }, (err) => {
             console.log(err);
             proj.cobalt_version = '0.0.0';
@@ -70,6 +69,7 @@ class Home extends React.Component {
 
   getProjectList = () => {
     this.buildProjectList(1);
+    this.buildProjectList(2);//TODO: FIX ME
   }
 
   setProjectListState = (projects) => {

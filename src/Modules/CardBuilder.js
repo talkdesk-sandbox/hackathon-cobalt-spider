@@ -28,29 +28,28 @@ const CardBuilder = ({selected, changeLog}) => {
 
   return (
     logTypes.map((type, index ) => {
-      if (selectedLog[type].length) {
-        return (
-          <Card key={index}>
-            <Header borderless transparent>
-              <Header.Heading>
-                <Header.Title>
-                <H3 asH4>{type}</H3>
-              </Header.Title>
-              </Header.Heading>
-            </Header>
-            <Card.Content>
-              <List divided>
-                {selectedLog[type].map((entry, index) => {
-                  return logEntry(entry, index)
-                })}
-              </List>
-            </Card.Content>
-          </Card>
-        )
-      } else {
-        return null
+      if (!selectedLog[type].length) return null;
+
+      return (
+        <Card key={index}>
+          <Header borderless transparent>
+            <Header.Heading>
+              <Header.Title>
+              <H3 asH4>{type}</H3>
+            </Header.Title>
+            </Header.Heading>
+          </Header>
+          <Card.Content>
+            <List divided>
+              {selectedLog[type].map((entry, index) => {
+                return logEntry(entry, index)
+              })}
+            </List>
+          </Card.Content>
+        </Card>
+      )
       }
-    })
+    )
   )
 }
 
