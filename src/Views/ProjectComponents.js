@@ -4,6 +4,7 @@ import HomeHeader from '../Modules/HomeHeader';
 import ComponentNameList from '../Modules/ComponentNameList';
 import ComponentLog from '../Modules/ComponentLog';
 import '../styles.css';
+import components from '../api/components'
 
 class ProjectComponents extends React.Component  {
   constructor(props) {
@@ -12,8 +13,8 @@ class ProjectComponents extends React.Component  {
     this.state = {
       cobaltCurrentVersion: '27.0.0',
       ProjectVersion: '20.0.0',
-      ComponentList: ['Dropdown', 'List', 'Button'],
-      selected:'Dropdown'
+      ComponentList: components,
+      selected: components[0]
     }
   }
 
