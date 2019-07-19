@@ -6,10 +6,28 @@ const changelog = {
     breakingChange: []
   },
   'Accordion': {
-    added: [],
+    added: [
+      {
+        version: '21.2.0',
+        message: '- `Accordion` component: Mutually exclusive, `background` bool prop to add a gray background and `transparent` bool prop to remove backgrounds | Mutually exclusive, `inlineArrow` bool prop to have arrow inline and `leftArrow` bool prop to have arrow to the left | Mutually exclusive, `borderless` bool prop and `borderBottom` bool prop, are now supported.',
+        prNr: '736'
+      },
+      {
+        version: '22.0.0',
+        message: 'New `Accordion` stateless component.',
+        prNr: '740'
+      }
+
+    ],
     fixed: [],
     changed: [],
-    breakingChange: []
+    breakingChange: [
+      {
+        version: '22.0.0',
+        message: '`Accordion` renamed to `AccordionStateful`. The behavior remains the same.',
+        prNr: '740'
+      }
+    ]
   },
   'Alert': {
     added: [],
@@ -18,16 +36,52 @@ const changelog = {
     breakingChange: []
   },
   'Avatar': {
-    added: [],
+    added: [
+      {
+        version: '25.0.0',
+        message: '`Avatar` component: `contentColor` string prop. It can receive one of Cobalt colors to define the content color of an Avatar. `backgroundColor` string prop. It can receive one of Cobalt colors to define the background color of an Avatar.',
+        prNr: '804'
+      }
+    ],
     fixed: [],
     changed: [],
-    breakingChange: []
+    breakingChange: [
+      {
+        version: '25.0.0',
+        message: '`primary`, `primaryAlt`, `gray`, `secondary`, `tertiary`, `red`, `yellow`, `green`, `orange` props were removed from `Avatar` component.',
+        prNr: '804'
+      }
+    ]
   },
   'AvatarStack': {
     added: [],
     fixed: [],
     changed: [],
     breakingChange: []
+  },
+  'Badge': {
+    added: [
+      {
+        version: '23.4.0',
+        message: '`backgroundColor` prop added to `Badge` component. It can receive one of Rating colors.',
+        prNr: '793'
+      }
+    ],
+    fixed: [],
+    changed: [
+      {
+        version: '23.4.0',
+        message: '`Badge` component can now receive any children.',
+        prNr: '793'
+      }
+    ],
+    breakingChange: [
+      {
+        version: '25.0.0',
+        message: 'Due to `Chip` implementation, some changes were made. `Tag` and `Badge` components were removed. `TagsGroup` renamed to `ChipsGroup`.',
+        prNr: '812'
+      }
+    ]
   },
   'Box': {
     added: [],
@@ -36,7 +90,13 @@ const changelog = {
     breakingChange: []
   },
   'Button': {
-    added: [],
+    added: [
+      {
+        version: '25.0.0',
+        message: '`Button.INLINE_LOADING_STATE` state to `Button` component. It shows the loading animation inline with the button\'s content.',
+        prNr: '821'
+      }
+    ],
     fixed: [],
     changed: [],
     breakingChange: []
@@ -49,7 +109,13 @@ const changelog = {
   },
   'Calendar': {
     added: [],
-    fixed: [],
+    fixed: [
+      {
+        version: '21.1.1',
+        message: '`DatePicker` and `DateRangePicker` components now renders the correct wrapper class.',
+        prNr: '732'
+      }
+    ],
     changed: [],
     breakingChange: []
   },
@@ -86,7 +152,13 @@ const changelog = {
     ],
     fixed: [],
     changed: [],
-    breakingChange: []
+    breakingChange: [
+      {
+        version: '25.0.0',
+        message: 'Due to `Chip` implementation, some changes were made. `Tag` and `Badge` components were removed. `TagsGroup` renamed to `ChipsGroup`.',
+        prNr: '812'
+      }
+    ]
   },
   'ChipsGroup': {
     added: [],
@@ -143,7 +215,11 @@ const changelog = {
     breakingChange: []
   },
   'Divider': {
-    added: [],
+    added: [{
+      version: '23.0.0',
+      message: '`noMargin` bool prop to `Divider` component. It removes the component margin. It can only be used if no `children` is present.',
+      prNr: '763'
+    }],
     fixed: [],
     changed: [],
     breakingChange: []
@@ -180,16 +256,86 @@ const changelog = {
     ]
   },
   'Dropdown': {
-    added: [],
-    fixed: [],
-    changed: [],
-    breakingChange: []
+    added: [
+      {
+        version: '21.1.0',
+        message: '`Dropdown`component: `id` string prop and `onFocus` func prop event callback',
+        prNr: '717'
+      },
+      {
+        version: '23.0.0',
+        message: '`onFocus` func prop event callback to `MultiDropdown`component. It is called only if the component is not opened.',
+        prNr: '756'
+      },
+      {
+        version: '23.2.0',
+        message: '`clearable` bool prop to `Dropdown` component. It cannot be used with the `borderless` prop at the same time.',
+        prNr: '781'
+      },
+      {
+        version: '23.3.0',
+        message: '`Dropdown.LoadMore` component. It accepts: a string as a child, a `loading` bool prop to add a loader, a `onClick` func as a callback and data attributes.',
+        prNr: '787'
+      },
+      {
+        version: '25.0.0',
+        message: '`Dropdown` stateless component.',
+        prNr: '817'
+      }
+    ],
+    fixed: [
+      {
+        version: '23.3.1',
+        message: 'Options with the same `text` are now evaluated correctly when selected in `MultiDropdown` component.',
+        prNr: '791'
+      },
+      {
+        version: '24.0.1',
+        message: '`Dropdown` selected values now truncates correctly.',
+        prNr: '798'
+      }
+    ],
+    changed: [
+      {
+        version: '25.0.0',
+        message: '`DropdownStateful` now renders an `EMPTY` or `CHECK` icon.',
+        prNr: '817'
+      },
+      {
+        version: '25.0.0',
+        message: '`Dropdown` placeholder prop now accepts any node.',
+        prNr: '834'
+      }
+    ],
+    breakingChange: [
+      {
+        version: '24.0.1',
+        message: '`Dropdown` and `MultiDropdown` components. A lot of changes were made, please check [v24 update guide](./updateGuides/v24-update-guide.md) for more info.',
+        prNr: ''
+      },
+      {
+        version: '25.0.0',
+        message: '`Dropdown` component renamed to `DropdownStateful`.',
+        prNr: '817'
+      },
+      {
+        version: '26.0.0',
+        message: '`Dropdown` and `MultiDropdown` components now return `null` when the values are cleared or all unselected.',
+        prNr: '855'
+      }
+    ]
   },
   'EmptyWidget': {
     added: [],
     fixed: [],
     changed: [],
-    breakingChange: []
+    breakingChange: [
+      {
+        version: '25.0.0',
+        message: '`EmptyWidget` component: Requires children (`Icon` or `Image`). Removed `type` prop to define which image to render.',
+        prNr: '813'
+      }
+    ]
   },
   'Flag': {
     added: [],
@@ -198,25 +344,28 @@ const changelog = {
     breakingChange: []
   },
   'Form': {
-    added: [],
-    fixed: [],
-    changed: [],
-    breakingChange: []
-  },
-  'FormEmailField': {
-    added: [],
-    fixed: [],
-    changed: [],
-    breakingChange: []
-  },
-  'FormField': {
-    added: [],
-    fixed: [],
-    changed: [],
-    breakingChange: []
-  },
-  'FormFieldGroup': {
-    added: [],
+    added: [
+      {
+        version: '21.1.0',
+        message: '`Form.Field` label now focus its associated field on `click`',
+        prNr: '717'
+      },
+      {
+        version: '21.2.0',
+        message: 'Custom validation in `Form.Field` wasn\'t being performed on empty text input.',
+        prNr: '728'
+      },
+      {
+        version: '23.0.0',
+        message: '`smallLabel` and `largeLabel` mutually exclusive bool props to to `Form.Field`.',
+        prNr: '759'
+      },
+      {
+        version: '24.0.1',
+        message: '`Form.FieldGroup` component. `small` and `large` bool props. They control the size of the inputs inside the group.`Form.FieldGroup.TextLabel` component. It renders a `span` but supports different sizes.',
+        prNr: '806'
+      }
+    ],
     fixed: [],
     changed: [],
     breakingChange: []
@@ -289,7 +438,13 @@ const changelog = {
     breakingChange: []
   },
   'Icon': {
-    added: [],
+    added: [
+      {
+        version: '24.0.1',
+        message: '`tiny` bool prop added to `Icon` component. It is set to `true` by default.',
+        prNr: '806'
+      }
+    ],
     fixed: [],
     changed: [],
     breakingChange: []
@@ -395,7 +550,14 @@ const changelog = {
         message: 'Auto-dismiss `Message` component now pauses the timer when the window/tab is not active.',
         prNr: '843'
       }
-    ]
+    ],
+    fixed: [
+      {
+        version: '23.0.0',
+        message: 'Fixed icons of Warning/Error `Message` to respect Design\'s specification.',
+        prNr: '753'
+      }
+    ],
   },
   'Modal': {
     added: [],
@@ -416,7 +578,13 @@ const changelog = {
     added: [],
     fixed: [],
     changed: [],
-    breakingChange: []
+    breakingChange: [
+      {
+        version: '22.0.0',
+        message: '`vertical` prop removed from `Navbar`.',
+        prNr: '749'
+      }
+    ]
   },
   'NavbarLink': {
     added: [],
@@ -515,10 +683,33 @@ const changelog = {
     breakingChange: []
   },
   'Rating': {
-    added: [],
-    fixed: [],
+    added: [
+      {
+        version: '23.2.0',
+        message: '`Rating` stateless component.',
+        prNr: '774'
+      },
+      {
+        version: '24.0.1',
+        message: '`RatingStateful` component.',
+        prNr: '785'
+      }
+    ],
+    fixed: [
+      {
+        version: '24.0.1',
+        message: '`RatingStateful` now correctly imports `Color`.',
+        prNr: '809'
+      }
+    ],
     changed: [],
-    breakingChange: []
+    breakingChange: [
+      {
+        version: '24.0.1',
+        message: 'In `Rating` stateless component: `onMouseOver` prop renamed to `onMouseEnter, `onMouseOut` prop renamed to `onMouseLeave`',
+        prNr: '809'
+      }
+    ]
   },
   'Search': {
     added: [
@@ -562,22 +753,81 @@ const changelog = {
     breakingChange: []
   },
   'SelectionGroup': {
-    added: [],
-    fixed: [],
+    added: [
+      {
+        version: '21.2.0',
+        message: '`id`, `tabIndex`, `fullWidth` and `name` string props to `SelectionGroup`.',
+        prNr: '735'
+      }
+    ],
+    fixed: [
+      {
+        version: '23.0.1',
+        message: '`SelectionGroup.Option` now renders the correct `id` to both `label` and `input` when no `id` prop is provided.',
+        prNr: '770'
+      }
+    ],
     changed: [
+      {
+        version: '21.1.0',
+        message: '`value` prop can now be `string` or `number`.',
+        prNr: '729'
+      },
       {
         version: '26.0.0',
         message: 'Updated `SelectionGroup` component to support tooltip via `data-attr`.',
         prNr: '846'
       }
     ],
-    breakingChange: []
+    deprecated: [
+      {
+        version: '21.2.0',
+        message: '`fluid` prop. Use `fullWidth` instead.',
+        prNr: '735'
+      }
+    ]
   },
   'SidePanel': {
     added: [],
     fixed: [],
     changed: [],
     breakingChange: []
+  },
+  'Tag': {
+    added: [],
+    fixed: [],
+    changed: [],
+    breakingChange: [
+      {
+        version: '25.0.0',
+        message: 'Due to `Chip` implementation, some changes were made. `Tag` and `Badge` components were removed. `TagsGroup` renamed to `ChipsGroup`.',
+        prNr: '812'
+      }
+    ]
+  },
+  'TagsGroup': {
+    added: [
+      {
+        version: '23.1.0',
+        message: '`popupHeaderTitle` prop in `TagsGroup` component. It expects a string or a function. The function should expect the number of tags as argument.',
+        prNr: '775'
+      }
+    ],
+    fixed: [
+      {
+        version: '23.3.1',
+        message: '`TagsGroup` component: when it has less than two tags, it renders correctly, it now renders correctly when the container is right aligned.',
+        prNr: '790'
+      }
+    ],
+    changed: [],
+    breakingChange: [
+      {
+        version: '25.0.0',
+        message: 'Due to `Chip` implementation, some changes were made. `Tag` and `Badge` components were removed. `TagsGroup` renamed to `ChipsGroup`.',
+        prNr: '812'
+      }
+    ]
   },
   'TagsInput': {
     added: [],
@@ -586,7 +836,18 @@ const changelog = {
     breakingChange: []
   },
   'PhoneInput': {
-    added: [],
+    added: [
+      {
+        version: '25.0.0',
+        message: '`PhoneInput` component.',
+        prNr: '815'
+      },
+      {
+        version: '25.0.0',
+        message: '`pattern` string prop to `TextInput` and `PhoneInput`. It accepts a regular expression that the input\'s value must match in order for the value to pass constraint validation.',
+        prNr: '815'
+      }
+    ],
     fixed: [],
     changed: [],
     breakingChange: []
@@ -594,9 +855,24 @@ const changelog = {
   'Table': {
     added: [
       {
+        version: '23.0.0',
+        message: '`width` string prop on `Table.Data` when used in `Table.Virtualized` component now works as expected.',
+        prNr: '754'
+      },
+      {
+        version: '23.0.0',
+        message: 'Fixed `Table.Header` with `width` and not `sortable` rendering on `Table.Virtualized`  `sortable` component. It now renders the correct HTML element.',
+        prNr: '765'
+      },
+      {
         version: '23.2.0',
         message: 'Support for data attributes on `Dialog`, `Dialog.Content`, `Dialog.Actions`, `Section`, `Table.Header`, `Table.Data` and `Table.Row`.',
         prNr: '782'
+      },
+      {
+        version: '23.5.0',
+        message: '`Table` component: `draggable` bool prop. It implements draggable Table styles., `Table.DraggableRow` component. It renders a draggable row., `onMoveRow` (drag move) and `onDropRow` (drag end) func props on `Table.Body`. Returns an array with initial and ending index.',
+        prNr: '795'
       },
       {
         version: '27.0.0',
@@ -606,16 +882,44 @@ const changelog = {
     ],
     fixed: [],
     changed: [],
-    breakingChange: []
+    breakingChange: [
+      {
+        version: '23.0.0',
+        message: '`scrollable` prop in `Table` is now a boolean value again. Use `scrollableHeight` to define the scrolling height.',
+        prNr: '742'
+      }
+    ]
   },
   'Textarea': {
-    added: [],
+    added: [
+      {
+        version: '21.0.1',
+        message: '`small` bool prop to `TextInput`.',
+        prNr: '717'
+      },
+    ],
     fixed: [],
     changed: [],
     breakingChange: []
   },
   'TextInput': {
-    added: [],
+    added: [
+      {
+        version: '21.0.1',
+        message: '`onFocus` func prop event callback',
+        prNr: '717'
+      },
+      {
+        version: '23.0.0',
+        message: '`large` bool prop on `TextInput` component. It is mutually exclusive with `small` bool prop.',
+        prNr: '755'
+      },
+      {
+        version: '25.0.0',
+        message: '`pattern` string prop to `TextInput` and `PhoneInput`. It accepts a regular expression that the input\'s value must match in order for the value to pass constraint validation.',
+        prNr: '815'
+      }
+    ],
     fixed: [],
     changed: [],
     breakingChange: []
@@ -657,7 +961,13 @@ const changelog = {
     breakingChange: []
   },
   'Toolbar': {
-    added: [],
+    added: [
+      {
+        version: '21.2.0',
+        message: '`backgroundColor` on `Toolbar`, can only use the shade `100` of gray.',
+        prNr: '737'
+      }
+    ],
     fixed: [],
     changed: [],
     breakingChange: []
@@ -706,15 +1016,21 @@ const changelog = {
     ]
   },
   'Wizard': {
-    added: [],
+    added: [
+      {
+        version: '21.2.0',
+        message: '`errorMessage` prop to `WizardNavItem` component.',
+        prNr: '743'
+      }
+    ],
     fixed: [],
-    changed: [],
-    breakingChange: []
-  },
-  'WizardHead': {
-    added: [],
-    fixed: [],
-    changed: [],
+    deprecated: [
+      {
+        version: '21.2.0',
+        message: '`showCompletion` bool prop removed from `WizardNavItem` component. The icon is rendered automatically when needed.',
+        prNr: '743'
+      }
+    ],
     breakingChange: []
   }
 }
