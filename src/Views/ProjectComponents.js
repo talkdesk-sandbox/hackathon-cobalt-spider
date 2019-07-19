@@ -1,10 +1,10 @@
 import React from 'react';
 import { Page, Grid } from 'cobalt-react-components';
-import HomeHeader from '../Modules/HomeHeader';
+import ComponentHeader from '../Modules/ComponentHeader';
 import ComponentNameList from '../Modules/ComponentNameList';
 import ComponentLog from '../Modules/ComponentLog';
-import '../styles.css';
 import components from '../api/components'
+import '../styles.css';
 
 class ProjectComponents extends React.Component  {
   constructor(props) {
@@ -27,7 +27,11 @@ class ProjectComponents extends React.Component  {
 
     return (
       <>
-        <HomeHeader />
+        <ComponentHeader
+          appName='Uma app'
+          description='descrição de uma app'
+          repoVersion='25.0.0'
+        />
         <Page>
           <Page.Content>
             <Grid fullWidth noPadding>

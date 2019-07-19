@@ -1,7 +1,7 @@
 import GitHub from 'github-api';
 
 // const CO_REACT_VERSION_REPO = 'cobalt-react-components';
-const GITHUB_OAUTH_TOKEN = '';
+const GITHUB_OAUTH_TOKEN = '5d4b538e299caeae1ed769839d5e7fda852d07fe';
 // const defaultPlaceholderVersions = {
 //   cobaltReactLatestVersion: '27.0.0'
 // };
