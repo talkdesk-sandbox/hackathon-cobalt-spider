@@ -1,15 +1,26 @@
 import React from 'react';
 import { Chip, Icon, H1, Header, Paragraph, Image, Media } from 'cobalt-react-components';
+import getMajorVersion from '../helpers/getMajorVersion'
 import '../styles.css';
 
 const ComponentHeader = ({ appName, description, repoVersion }) => {
+  const versionLag = getMajorVersion(window.COBALT_VERSION) - getMajorVersion(repoVersion);
+
+  const statusProps = (versionLag) => (
+    {
+      success: versionLag === 0,
+      warning: versionLag > 0 && versionLag <= 2,
+      danger: versionLag > 2,
+    }
+  )
+
   return (
-    <Header withBackNavigation onBack={() => {}}>
+    <Header withBackNavigation onBack={() => { window.history.back() }}>
       <Header.Heading>
         <Header.Title>
           <H1>{appName}</H1>
           <Header.Options>
-            <Chip warning>{repoVersion}</Chip>
+            <Chip {...statusProps(versionLag)}>{repoVersion}</Chip>
           </Header.Options>
         </Header.Title>
         <Header.Description>

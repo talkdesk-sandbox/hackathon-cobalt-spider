@@ -62,6 +62,7 @@ class Home extends React.Component {
   }
 
   setProjectListState = (projects) => {
+    window.COBALT_PROJECTS = projects;
     this.setState({ projects, isLoading: false });
   }
 
