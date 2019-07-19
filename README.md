@@ -4,10 +4,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Authentication
 
 Create an 'app-env' file in the home directory with content:
+NOTE: Currently this file will be placed on `/src/api/github_token.js`
 
-'GITHUB_OAUTH_TOKEN="XXXXXXXXXXXXXXXXXXXXXXXXXXX'
+```
+export const GITHUB_OAUTH_TOKEN = 'XXXXXXXXXXXXX'
+```
 
-Where XXXXXX... is a newly generated [Github Personal Access Token](https://github.com/settings/tokens); 
+Where XXXXXX... is a newly generated [Github Personal Access Token](https://github.com/settings/tokens);
 
 ## Available Scripts
 

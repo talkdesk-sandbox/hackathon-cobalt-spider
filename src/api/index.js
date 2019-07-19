@@ -1,8 +1,6 @@
 import GitHub from 'github-api';
-import { GITHUB_TOKEN } from './github_token'
+import { GITHUB_OAUTH_TOKEN } from './github_token'
 
-// const CO_REACT_VERSION_REPO = 'cobalt-react-components';
-const GITHUB_OAUTH_TOKEN = GITHUB_TOKEN;
 // const defaultPlaceholderVersions = {
 //   cobaltReactLatestVersion: '27.0.0'
 // };
