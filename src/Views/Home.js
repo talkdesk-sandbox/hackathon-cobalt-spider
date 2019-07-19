@@ -8,7 +8,7 @@ import { projectAPI, repoAPI } from '../api/index';
 
 function getPackageVersion(deps) {
   return deps && deps.hasOwnProperty('cobalt-react-components')
-    ? deps['cobalt-react-components']
+    ? deps['cobalt-react-components'].split('#v')[1]
     : null;
 }
 
@@ -22,7 +22,7 @@ function getVersion(data) {
     ? devVersion
     : depVersion
       ? depVersion
-      : '27.0.0';// TODO: change to null
+      : null; // TODO: change to null
 }
 
 class Home extends React.Component {
@@ -94,7 +94,7 @@ class Home extends React.Component {
                 <div className="co--push-center" style={{ height: '100%' }}>
                   <EmptyWidget
                     title='Oops!'
-                    message={`You either don\'t have the correct Github permissions or projects using Cobalt-React-Components.`}>
+                    message={`You either don't have the correct Github permissions or projects using Cobalt-React-Components.`}>
                     <Icon name={Icon.CLOSE_OUTLINE} large color={Color.gray[500]} />
                   </EmptyWidget>
                 </div>

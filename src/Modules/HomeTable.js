@@ -7,7 +7,7 @@ import '../styles.css';
 const onSortDirectionChange = () => {} // TO DO
 
 const RepoRow = ({title, description, link, repoVersion, repoLink}) => {
-  const versionLag = getMajorVersion(repoVersion) - getMajorVersion(repoVersion);
+  const versionLag = getMajorVersion(window.COBALT_VERSION) - getMajorVersion(repoVersion);
 
   const statusProps = (versionLag) => (
     {
