@@ -3,7 +3,10 @@ import { Header, H1 } from 'cobalt-react-components';
 import CardBuilder from '../Modules/CardBuilder';
 
 
-const ComponentLog = ({selected}) => {
+const ComponentLog = ({selected, changeLog, compStatus }) => {
+  const CurrentElement = compStatus.filter(el => el.name === selected);
+  const hasInfo = CurrentElement[0] && CurrentElement[0].stateLength ? CurrentElement[0].stateLength : 0
+
   return (
     <div>
       <Header borderless transparent>
@@ -13,7 +16,11 @@ const ComponentLog = ({selected}) => {
           </Header.Title>
         </Header.Heading>
       </Header>
-      <CardBuilder selected={selected} />
+      {
+        hasInfo.length
+         ? <CardBuilder selected={selected} changeLog={changeLog}/>
+        : <div>Not There</div>
+      }
     </div>
   );
 }
