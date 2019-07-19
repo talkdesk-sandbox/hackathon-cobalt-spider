@@ -1,7 +1,6 @@
 import React from 'react';
-import { Chip, Icon, H1, Header, Paragraph, Text, Image, Media, H5 } from 'cobalt-react-components';
+import { Chip, Icon, H1, Header, Paragraph, Image, Media } from 'cobalt-react-components';
 import '../styles.css';
-import { H4 } from 'cobalt-react-components/dist/components/Typography/typography';
 
 const HomeHeader = () => {
   return (
