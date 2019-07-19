@@ -3,13 +3,14 @@ const changelog = {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Accordion': {
     added: [
       {
         version: '21.2.0',
-        message: '- `Accordion` component: Mutually exclusive, `background` bool prop to add a gray background and `transparent` bool prop to remove backgrounds | Mutually exclusive, `inlineArrow` bool prop to have arrow inline and `leftArrow` bool prop to have arrow to the left | Mutually exclusive, `borderless` bool prop and `borderBottom` bool prop, are now supported.',
+        message: 'Props: Mutually exclusive, `background` bool prop to add a gray background and `transparent` bool prop to remove backgrounds | Mutually exclusive, `inlineArrow` bool prop to have arrow inline and `leftArrow` bool prop to have arrow to the left | Mutually exclusive, `borderless` bool prop and `borderBottom` bool prop, are now supported.',
         prNr: '736'
       },
       {
@@ -21,6 +22,7 @@ const changelog = {
     ],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: [
       {
         version: '22.0.0',
@@ -33,18 +35,20 @@ const changelog = {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Avatar': {
     added: [
       {
         version: '25.0.0',
-        message: '`Avatar` component: `contentColor` string prop. It can receive one of Cobalt colors to define the content color of an Avatar. `backgroundColor` string prop. It can receive one of Cobalt colors to define the background color of an Avatar.',
+        message: '`contentColor` string prop. It can receive one of Cobalt colors to define the content color of an Avatar. `backgroundColor` string prop. It can receive one of Cobalt colors to define the background color of an Avatar.',
         prNr: '804'
       }
     ],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: [
       {
         version: '25.0.0',
@@ -57,13 +61,14 @@ const changelog = {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Badge': {
     added: [
       {
         version: '23.4.0',
-        message: '`backgroundColor` prop added to `Badge` component. It can receive one of Rating colors.',
+        message: '`backgroundColor` prop added. It can receive one of Rating\'s colors.',
         prNr: '793'
       }
     ],
@@ -75,10 +80,11 @@ const changelog = {
         prNr: '793'
       }
     ],
+    deprecated: [],
     breakingChange: [
       {
         version: '25.0.0',
-        message: 'Due to `Chip` implementation, some changes were made. `Tag` and `Badge` components were removed. `TagsGroup` renamed to `ChipsGroup`.',
+        message: 'Due to `Chip` implementation, `Badge` component was removed.',
         prNr: '812'
       }
     ]
@@ -87,6 +93,7 @@ const changelog = {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Button': {
@@ -99,12 +106,14 @@ const changelog = {
     ],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Brand': {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Calendar': {
@@ -117,24 +126,28 @@ const changelog = {
       }
     ],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Card': {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Chat': {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Checkbox': {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Chip': {
@@ -152,24 +165,21 @@ const changelog = {
     ],
     fixed: [],
     changed: [],
-    breakingChange: [
-      {
-        version: '25.0.0',
-        message: 'Due to `Chip` implementation, some changes were made. `Tag` and `Badge` components were removed. `TagsGroup` renamed to `ChipsGroup`.',
-        prNr: '812'
-      }
-    ]
+    deprecated: [],
+    breakingChange: []
   },
   'ChipsGroup': {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'CollapsableText': {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Color': {
@@ -185,6 +195,7 @@ const changelog = {
         prNr: '873'
       }
     ],
+    deprecated: [],
     breakingChange: [
       {
         version: '21.0.0',
@@ -194,34 +205,40 @@ const changelog = {
     ]
   },
   'copyToClipboardButton': {
+    added: [],
+    fixed: [],
     changed: [
       {
         version: '27.0.0',
-        message: '`copyToClipboardButton` - now receives any child for its content',
+        message: 'Now receives any child for its content',
         prNr: '876'
       }
-    ]
+    ],
+    deprecated: [],
+    breakingChange: []
   },
   'Dialog': {
     added: [
       {
         version: '23.2.0',
-        message: 'Support for data attributes on `Dialog`, `Dialog.Content`, `Dialog.Actions`, `Section`, `Table.Header`, `Table.Data` and `Table.Row`.',
+        message: 'Support for data attributes.',
         prNr: '782'
       }
     ],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Divider': {
     added: [{
       version: '23.0.0',
-      message: '`noMargin` bool prop to `Divider` component. It removes the component margin. It can only be used if no `children` is present.',
+      message: '`noMargin` bool prop . It removes the component margin. It can only be used if no `children` is present.',
       prNr: '763'
     }],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Dock': {
@@ -247,6 +264,9 @@ const changelog = {
         prNr: '877'
       },
     ],
+    fixed: [],
+    changed: [],
+    deprecated: [],
     breakingChange: [
       {
         version: '27.0.0',
@@ -259,7 +279,7 @@ const changelog = {
     added: [
       {
         version: '21.1.0',
-        message: '`Dropdown`component: `id` string prop and `onFocus` func prop event callback',
+        message: '`id` string prop and `onFocus` func prop event callback',
         prNr: '717'
       },
       {
@@ -307,6 +327,7 @@ const changelog = {
         prNr: '834'
       }
     ],
+    deprecated: [],
     breakingChange: [
       {
         version: '24.0.1',
@@ -329,10 +350,11 @@ const changelog = {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: [
       {
         version: '25.0.0',
-        message: '`EmptyWidget` component: Requires children (`Icon` or `Image`). Removed `type` prop to define which image to render.',
+        message: 'Requires children (`Icon` or `Image`). Removed `type` prop to define which image to render.',
         prNr: '813'
       }
     ]
@@ -341,6 +363,7 @@ const changelog = {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Form': {
@@ -362,27 +385,34 @@ const changelog = {
       },
       {
         version: '24.0.1',
-        message: '`Form.FieldGroup` component. `small` and `large` bool props. They control the size of the inputs inside the group.`Form.FieldGroup.TextLabel` component. It renders a `span` but supports different sizes.',
+        message: '`Form.FieldGroup` component: `small` and `large` bool props. They control the size of the inputs inside the group.`Form.FieldGroup.TextLabel` component. It renders a `span` but supports different sizes.',
         prNr: '806'
       }
     ],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Footer': {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Footnote': {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'GradientWrapper': {
+    added: [],
+    fixed: [],
+    changed: [],
+    deprecated: [],
     breakingChange: [
       {
         version: '27.0.0',
@@ -418,6 +448,7 @@ const changelog = {
         prNr: '726'
       }
     ],
+    deprecated: [],
     breakingChange: [
       {
         version: '21.1.0',
@@ -435,6 +466,7 @@ const changelog = {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Icon': {
@@ -447,18 +479,21 @@ const changelog = {
     ],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Illustration': {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Image': {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'LabeledIcon': {
@@ -474,11 +509,16 @@ const changelog = {
         prNr: '842'
       }
     ],
+    fixed: [],
+    changed: [],
+    deprecated: [],
+    breakingChange: []
   },
   'Link': {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'List': {
@@ -508,6 +548,7 @@ const changelog = {
         prNr: '839'
       }
     ],
+    deprecated: [],
     breakingChange: []
   },
   'Loader': {
@@ -523,6 +564,9 @@ const changelog = {
         prNr: '848'
       }
     ],
+    fixed: [],
+    changed: [],
+    deprecated: [],
     breakingChange: [
       {
         version: '27.0.0',
@@ -535,12 +579,14 @@ const changelog = {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Media': {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Message': {
@@ -558,26 +604,35 @@ const changelog = {
         prNr: '753'
       }
     ],
+    changed: [],
+    deprecated: [],
+    breakingChange: []
   },
   'Modal': {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Nav': {
     added: [
       {
         version: '27.0.0',
-        message: '`Nav`, `PanelsLayout.Content` and `PanelsLayout.Panel` children prop type is now `any` and not required.',
+        message: 'Children prop type is now `any` and not required.',
         prNr: '865'
       }
-    ]
+    ],
+    fixed: [],
+    changed: [],
+    deprecated: [],
+    breakingChange: []
   },
   'Navbar': {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: [
       {
         version: '22.0.0',
@@ -590,30 +645,35 @@ const changelog = {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'NavbarPopupLink': {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'NumberInput': {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Page': {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Pagination': {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'PanelsLayout': {
@@ -634,18 +694,22 @@ const changelog = {
         prNr: '865'
       }
     ],
+    fixed: [],
     changed: [
       {
         version: '27.0.0',
-        message: '`Nav`, `PanelsLayout.Content` and `PanelsLayout.Panel` children prop type is now `any` and not required.',
+        message: 'Childrens prop types are now `any` and not required.',
         prNr: '865'
       }
     ],
+    deprecated: [],
+    breakingChange: []
   },
   'Patterns': {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Popup': {
@@ -661,6 +725,7 @@ const changelog = {
         prNr: '750'
       }
     ],
+    fixed: [],
     changed: [
       {
         version: '26.0.0',
@@ -668,6 +733,7 @@ const changelog = {
         prNr: '839'
       }
     ],
+    deprecated: [],
     breakingChange: [
       {
         version: '22.0.0',
@@ -680,6 +746,7 @@ const changelog = {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Rating': {
@@ -703,6 +770,7 @@ const changelog = {
       }
     ],
     changed: [],
+    deprecated: [],
     breakingChange: [
       {
         version: '24.0.1',
@@ -726,13 +794,14 @@ const changelog = {
     ],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Section': {
     added: [
       {
         version: '23.2.0',
-        message: 'Support for data attributes on `Dialog`, `Dialog.Content`, `Dialog.Actions`, `Section`, `Table.Header`, `Table.Data` and `Table.Row`.',
+        message: 'Support for data attributes.',
         prNr: '782'
       }
     ],
@@ -744,12 +813,14 @@ const changelog = {
         prNr: '878'
       }
     ],
+    deprecated: [],
     breakingChange: []
   },
   'SectionGroup': {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'SelectionGroup': {
@@ -785,22 +856,25 @@ const changelog = {
         message: '`fluid` prop. Use `fullWidth` instead.',
         prNr: '735'
       }
-    ]
+    ],
+    breakingChange: []
   },
   'SidePanel': {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Tag': {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: [
       {
         version: '25.0.0',
-        message: 'Due to `Chip` implementation, some changes were made. `Tag` and `Badge` components were removed. `TagsGroup` renamed to `ChipsGroup`.',
+        message: 'Due to `Chip` implementation, `Tag` was removed.',
         prNr: '812'
       }
     ]
@@ -821,10 +895,11 @@ const changelog = {
       }
     ],
     changed: [],
+    deprecated: [],
     breakingChange: [
       {
         version: '25.0.0',
-        message: 'Due to `Chip` implementation, some changes were made. `Tag` and `Badge` components were removed. `TagsGroup` renamed to `ChipsGroup`.',
+        message: 'Due to `Chip` implementation, `TagsGroup` renamed to `ChipsGroup`.',
         prNr: '812'
       }
     ]
@@ -833,6 +908,7 @@ const changelog = {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'PhoneInput': {
@@ -850,6 +926,7 @@ const changelog = {
     ],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Table': {
@@ -882,6 +959,7 @@ const changelog = {
     ],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: [
       {
         version: '23.0.0',
@@ -894,12 +972,13 @@ const changelog = {
     added: [
       {
         version: '21.0.1',
-        message: '`small` bool prop to `TextInput`.',
+        message: '`small` bool prop to `TextArea`.',
         prNr: '717'
       },
     ],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'TextInput': {
@@ -922,6 +1001,7 @@ const changelog = {
     ],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Timepicker': {
@@ -931,12 +1011,17 @@ const changelog = {
         message: '`daySpan` numeric prop to `Timepicker` component.',
         prNr: '869'
       }
-    ]
+    ],
+    fixed: [],
+    changed: [],
+    deprecated: [],
+    breakingChange: []
   },
   'Timezone': {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'TimezoneDropdown': {
@@ -946,18 +1031,24 @@ const changelog = {
         message: '`disabled` bool prop to `TimezoneDropdown` component.',
         prNr: '868'
       }
-    ]
+    ],
+    fixed: [],
+    changed: [],
+    deprecated: [],
+    breakingChange: []
   },
   'Toaster': {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Toggle': {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Toolbar': {
@@ -970,6 +1061,7 @@ const changelog = {
     ],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Tooltip': {
@@ -986,19 +1078,16 @@ const changelog = {
         version: '26.0.0',
         message: 'Updated `Tooltip` component to avoid a `span` wrapper in the child component.',
         prNr: '846'
-      },
-      {
-        version: '26.0.0',
-        message: 'Updated `SelectionGroup` component to support tooltip via `data-attr`.',
-        prNr: '846'
-      },
+      }
     ],
+    deprecated: [],
     breakingChange: []
   },
   'Typography': {
     added: [],
     fixed: [],
     changed: [],
+    deprecated: [],
     breakingChange: []
   },
   'Viewport': {
@@ -1013,7 +1102,11 @@ const changelog = {
         message: '`Viewport.Provider` to allow app mocking tests. Beware, this shouldn\'t be used in production.',
         prNr: '871'
       }
-    ]
+    ],
+    fixed: [],
+    changed: [],
+    deprecated: [],
+    breakingChange: []
   },
   'Wizard': {
     added: [
@@ -1031,6 +1124,7 @@ const changelog = {
         prNr: '743'
       }
     ],
+    deprecated: [],
     breakingChange: []
   }
 }
