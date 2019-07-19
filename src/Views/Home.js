@@ -7,13 +7,15 @@ import '../styles.css';
 import { projectAPI, repoAPI } from '../api/index';
 
 function getVersion(data) {
-  const { devDependencies } = JSON.parse(window.atob(data.content));
+  // const { devDependencies } = JSON.parse(window.atob(data.content));
 
-  if (!devDependencies) return null;
+  return '27.0.0';
 
-  return devDependencies.hasOwnProperty('cobalt-react-components')
-    ? devDependencies['cobalt-react-components']
-    : null;
+  // if (!devDependencies) return null;
+
+  // return devDependencies.hasOwnProperty('cobalt-react-components')
+  //   ? devDependencies['cobalt-react-components']
+  //   : null;
 }
 
 class Home extends React.Component {
