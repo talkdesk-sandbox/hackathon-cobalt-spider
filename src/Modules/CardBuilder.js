@@ -14,7 +14,7 @@ const logEntry = (entry, index)=> {
     <List.Item key={index} active>
       <List.Item.Content>{message}</List.Item.Content>
       <List.Item.Content minimal>
-        <Link href={TAG_LINK}>
+        <Link href={TAG_LINK} target="_blank">
           <Chip feature>{version}</Chip>
         </Link>
       </List.Item.Content>
