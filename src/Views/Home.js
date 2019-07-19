@@ -84,9 +84,11 @@ class Home extends React.Component {
             )
             : ( this.state.projects.length !== 0
               ? (
-                <Grid fullWidth>
-                  <HomeTable projects={this.state.projects} />
-                </Grid>
+                <div className="cs--scroll-hack-list">
+                  <Grid fullWidth>
+                    <HomeTable projects={this.state.projects} />
+                  </Grid>
+                </div>
               )
               : (
                 <div className="co--push-center" style={{ height: '100%' }}>
