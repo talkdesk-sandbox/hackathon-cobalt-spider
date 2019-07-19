@@ -1,0 +1,13 @@
+{
+  "id": "myid",
+  "name": "Cobalt Spider",
+  "version": "0.0.0",
+  "sdk-version": "0",
+  "capabilities": [],
+  "scopes": [],
+  "assets": {
+    "icon": "https://via.placeholder.com/44x44"
+  },
+  "src": "http://localhost:3000",
+  "slug": "cobalt-spider"
+}

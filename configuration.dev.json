@@ -1,0 +1,11 @@
+{
+  "authentication": {
+    "id": "af69d02728014779a14ae632e6ea9290",
+    "secret": "rU6WFZc2coKP_9ucoXBef9Jyg5ltENuGWg--IsXZy_gS32TbHPzDNZ3gOGEF2_QwhbC8fz9Zax3gjSx4dMNbew",
+    "privateKey": "MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgepyqSKFrwMZzalz+s8O1C97vu3NryPFXXHuqMxEZfuChRANCAAS+nOtn3JooP266bexHLPG/yvgeFK+ffIvmUgjyKXXumE31+DWi34OaVaJuy5c8NGM751jCnx3pfJNXE/5kJE2I",
+    "clientKeyId": "5e9ada44eb474a80b39151948be7dd2e",
+    "clientKeyAlgorithm": "ES256",
+    "talkdeskIdBaseUrl": "talkdeskstgid.com",
+    "account": "the-a-team"
+  }
+}

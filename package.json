@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@atlas/sdk": "^0.1.1",
     "cobalt-react-components": "https://github.com/Talkdesk/cobalt-react-components.git#v27.0.0",
     "github-api": "^3.2.2",
     "react": "^16.8.6",
@@ -11,7 +12,9 @@
     "react-scripts": "3.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start:atlas": "atlas launch --config='./configuration.dev.json' --app-manifest='./manifest.json'",
+    "start:app": "BROWSER=none react-scripts start",
+    "start": "concurrently -k npm:start:*",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -30,5 +33,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@atlas/cli": "^0.1.0",
+    "concurrently": "^4.1.1"
   }
 }
