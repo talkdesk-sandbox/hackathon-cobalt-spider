@@ -18,12 +18,12 @@ const HomeHeader = () => {
         <Image
           src="http://cobalt.talkdeskapp.com/assets/images/logo-dark-basic.svg"
           alt="cobalt"
-          height={40}
+          height={45}
         />
         <p className="co--microcopy" style={{marginBottom: 0}}>
         Current Version
         </p>
-        <Chip info>
+        <Chip info large>
           {`v${window.COBALT_VERSION}`}
         </Chip>
       </Media>
