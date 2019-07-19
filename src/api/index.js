@@ -1,9 +1,6 @@
 import GitHub from 'github-api';
 import { GITHUB_OAUTH_TOKEN } from './github_token'
 
-// const defaultPlaceholderVersions = {
-//   cobaltReactLatestVersion: '27.0.0'
-// };
 window.COBALT_VERSION = '27.0.0';
 
 // basic auth
