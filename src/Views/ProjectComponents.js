@@ -29,10 +29,24 @@ class ProjectComponents extends React.Component  {
 
     this.state = {
       cobaltCurrentVersion: '27.0.0',
-      ProjectVersion: '20.0.0',
       CompListStatus: processComponentStatus(components, changeLog),
-      selected: components[0]
+      selected: components[0],
+      project: {}
     }
+  }
+
+  componentDidMount () {
+    const currentProject = window.COBALT_PROJECTS.filter((project) => {
+      if(project.name === this.props.match.params.id) return project
+    })
+
+    this.setState({
+      project: {
+        name: currentProject[0].name,
+        description: currentProject[0].description,
+        cobaltVersion: currentProject[0].cobalt_version
+      }
+    })
   }
 
   handleListSelect = (event) => {
@@ -40,14 +54,14 @@ class ProjectComponents extends React.Component  {
   }
 
   render () {
-    const { CompListStatus } = this.state;
+    const { CompListStatus, project } = this.state;
 
     return (
       <>
         <ComponentHeader
-          appName='Uma app'
-          description='descrição de uma app'
-          repoVersion='25.0.0'
+          appName={project.name || 'Project name'}
+          description={project.description || 'description'}
+          repoVersion={project.cobaltVersion || '0.0.0'}
         />
         <Page>
           <Page.Content>
