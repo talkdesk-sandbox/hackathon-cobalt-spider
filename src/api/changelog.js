@@ -1,11 +1,4 @@
 const changelog = {
-  'Root': {
-    added: [],
-    fixed: [],
-    changed: [],
-    deprecated: [],
-    breakingChange: []
-  },
   'Accordion': {
     added: [
       {
@@ -604,7 +597,6 @@ const changelog = {
         prNr: '753'
       }
     ],
-    changed: [],
     deprecated: [],
     breakingChange: []
   },
@@ -1124,7 +1116,6 @@ const changelog = {
         prNr: '743'
       }
     ],
-    deprecated: [],
     breakingChange: []
   }
 }
