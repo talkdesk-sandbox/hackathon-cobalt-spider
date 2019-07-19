@@ -1,8 +1,10 @@
 import React from 'react';
 import { Header, H3, Card, List,  Chip, Link } from 'cobalt-react-components';
 import '../styles.css';
-import changeLog from '../api/changelog'
 
+// function processMessage() {
+
+// }
 
 const logEntry = (entry, index)=> {
   const {message, version} = entry
@@ -20,7 +22,7 @@ const logEntry = (entry, index)=> {
   )
 }
 
-const CardBuilder = ({selected}) => {
+const CardBuilder = ({selected, changeLog}) => {
   const selectedLog = changeLog[selected]
   const logTypes = Object.keys(selectedLog)
 
@@ -45,6 +47,8 @@ const CardBuilder = ({selected}) => {
             </Card.Content>
           </Card>
         )
+      } else {
+        return null
       }
     })
   )
