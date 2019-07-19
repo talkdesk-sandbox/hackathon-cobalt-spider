@@ -36,9 +36,17 @@ class ProjectComponents extends React.Component  {
   }
 
   componentDidMount () {
-    const currentProject = window.COBALT_PROJECTS.filter((project) => {
-      if(project.name === this.props.match.params.id) return project
-    })
+    let currentProject = [{
+      name: 'Default project',
+      description: 'Just another project',
+      cobalt_version: '23.1.0'
+    }]
+
+    if (window.COBALT_PROJECTS) {
+      currentProject = window.COBALT_PROJECTS.filter((project) => {
+        if(project.name === this.props.match.params.id) return project
+      })
+    }
 
     this.setState({
       project: {
