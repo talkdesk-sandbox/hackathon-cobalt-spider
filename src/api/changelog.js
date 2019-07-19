@@ -1,22 +1,22 @@
 const changelog = {
   'Root': {
-  added: [],
-  fixed: [],
-  changed: [],
-  breakingChange: []
-},
+    added: [],
+    fixed: [],
+    changed: [],
+    breakingChange: []
+  },
   'Accordion': {
-  added: [],
-  fixed: [],
-  changed: [],
-  breakingChange: []
-},
+    added: [],
+    fixed: [],
+    changed: [],
+    breakingChange: []
+  },
   'Alert': {
-  added: [],
-  fixed: [],
-  changed: [],
-  breakingChange: []
-},
+    added: [],
+    fixed: [],
+    changed: [],
+    breakingChange: []
+  },
   'Avatar': {
     added: [],
     fixed: [],
@@ -481,8 +481,32 @@ const changelog = {
     breakingChange: []
   },
   'Popup': {
-    added: [],
-    changed: [],
+    added: [
+      {
+        version: '22.0.0',
+        message: '`Popup` component is now stateless. To keep using the old version, use the renamed `PopupStateful`.',
+        prNr: '750'
+      },
+      {
+        version: '22.0.0',
+        message: '`defaultOpen` bool prop in `PopupStateful` component.',
+        prNr: '750'
+      }
+    ],
+    changed: [
+      {
+        version: '26.0.0',
+        message: '`Popup.Content` and `PopupStateful.Content` with `List`s inside now need the `noPadding` prop to render correctly.',
+        prNr: '839'
+      }
+    ],
+    breakingChange: [
+      {
+        version: '22.0.0',
+        message: '`Popup` renamed to `PopupStateful`',
+        prNr: '750'
+      }
+    ]
   },
   'Radio': {
     added: [],
