@@ -16,6 +16,7 @@ const HomeToolbar = () => {
         <Grid.Column all='min'>
           <Search
             small
+            placeholder="Search by project"
             onSearch={onSearch} />
         </Grid.Column>
         <Grid.Column all='min' pushVcenter>
@@ -24,13 +25,6 @@ const HomeToolbar = () => {
             onClick={onClick}>
             <Icon name={Icon.FILTER_LIST} />
             <span>Filters</span>
-          </Button>
-          <Button
-            primary
-            small
-            onClick={onClick}>
-            <Icon name={Icon.FILTER_LIST} />
-            <span>Add new app</span>
           </Button>
         </Grid.Column>
       </Grid.Group>

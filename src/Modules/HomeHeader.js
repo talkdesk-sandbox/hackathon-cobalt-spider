@@ -1,6 +1,7 @@
 import React from 'react';
-import { Chip, Icon, H1, Header, Paragraph, Text } from 'cobalt-react-components';
+import { Chip, Icon, H1, Header, Paragraph, Text, Image, Media, H5 } from 'cobalt-react-components';
 import '../styles.css';
+import { H4 } from 'cobalt-react-components/dist/components/Typography/typography';
 
 const HomeHeader = () => {
   return (
@@ -14,13 +15,20 @@ const HomeHeader = () => {
         </Header.Description>
       </Header.Heading>
       <Header.Actions>
-        <Text microcopy alignRight>
-          Cobalt Current Version<br />
-          <Chip success large>
-            <Icon name={Icon.OFFER}></Icon>
-            {`v${window.COBALT_VERSION}`}
-          </Chip>
-        </Text>
+      <Media alignVerticalCenter>
+        <Image
+          src="http://cobalt.talkdeskapp.com/assets/images/logo-dark-basic.svg"
+          alt="cobalt"
+          height={40}
+        />
+        <p className="co--microcopy" style={{marginBottom: 0}}>
+        Current Version
+        </p>
+        <Chip info>
+          <Icon name={Icon.OFFER}></Icon>
+          {`v${window.COBALT_VERSION}`}
+        </Chip>
+      </Media>
       </Header.Actions>
     </Header>
   );
