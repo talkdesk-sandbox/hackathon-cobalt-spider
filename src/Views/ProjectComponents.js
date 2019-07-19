@@ -1,10 +1,12 @@
 import React from 'react';
 import '../styles.css';
-import { components } from '../api/index';
+
+// class ProjectComponents extends React.Component {
+//   render() {
+//   }
+// }
 
 const ProjectComponents = ({ match: { params: { id } } }) => {
-  console.log(components);
-
   return (
     <div className="cs-component-list">
       ProjectComponents

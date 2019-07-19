@@ -3,12 +3,11 @@ import { Link } from 'react-router-dom';
 import { Chip, H4, Icon, Paragraph, Table } from 'cobalt-react-components';
 import getMajorVersion from '../helpers/getMajorVersion'
 import '../styles.css';
-import { projects } from '../api/index';
 
 const onSortDirectionChange = () => {} // TO DO
 
 const RepoRow = ({title, description, link, repoVersion, repoLink}) => {
-  const versionLag = getMajorVersion(window.COBALT_VERSION) - getMajorVersion(repoVersion);
+  const versionLag = getMajorVersion(repoVersion) - getMajorVersion(repoVersion);
 
   const statusProps = (versionLag) => (
     {
@@ -46,7 +45,7 @@ const RepoRow = ({title, description, link, repoVersion, repoLink}) => {
   )
 }
 
-const HomeTable = () => {
+const HomeTable = ({ projects = [] }) => {
   return (
     <Table lightBubbleRows sortable hoverRows>
       <Table.Head>
@@ -66,11 +65,11 @@ const HomeTable = () => {
           projects.map((proj, index) => {
             return (
               <RepoRow
-              title={proj.projectName}
-              description='Description 1'
-              link={`project-components/${proj.repoPartial}`}
-              repoLink={proj.repoLink}
-              repoVersion={proj.cobaltReactVersion}
+              title={proj.full_name}
+              description={proj.description || ''}
+              link={`project-components/${proj.name}`}
+              repoLink={proj.html_url}
+              repoVersion={proj.cobalt_version || '27.0.0'}
               key={index}
               />
             )
@@ -78,7 +77,7 @@ const HomeTable = () => {
         }
       </Table.Body>
     </Table>
-  );
+  )
 }
 
 export default HomeTable;
