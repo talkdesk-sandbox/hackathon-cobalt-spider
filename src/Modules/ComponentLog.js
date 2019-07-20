@@ -1,25 +1,25 @@
 import React from 'react';
-import { Header, H1, EmptyWidget, Color, Icon } from 'cobalt-react-components';
+import { Header, H2, EmptyWidget, Color, Icon } from 'cobalt-react-components';
 import CardBuilder from '../Modules/CardBuilder';
 
 
-const ComponentLog = ({selected, changeLog, compStatus }) => {
-  const CurrentElement = compStatus.filter(el => el.name === selected);
-  const hasInfo = CurrentElement[0] && CurrentElement[0].stateLength ? CurrentElement[0].stateLength : 0
+const ComponentLog = ({componentStates, selected }) => {
+  const [currentElement] = componentStates.filter(el => el.name === selected);
+  const hasStates = (currentElement && currentElement.states) || false
 
   return (
     <>
     {
-      hasInfo.length
+      hasStates
         ? <>
           <Header borderless transparent>
             <Header.Heading>
               <Header.Title>
-                <H1>{selected}</H1>
+                <H2>{selected}</H2>
               </Header.Title>
             </Header.Heading>
           </Header>
-          <CardBuilder selected={selected} changeLog={changeLog}/>
+          <CardBuilder selected={selected} currentElement={currentElement}/>
         </>
         : <EmptyWidget
           title='Well Done'

@@ -25,34 +25,34 @@ const logEntry = (entry, index)=> {
   )
 }
 
-const CardBuilder = ({selected, changeLog}) => {
-  const selectedLog = changeLog[selected]
-  const logTypes = Object.keys(selectedLog)
+const CardBuilder = ({currentElement}) => {
+  const ElmStates = currentElement.states
 
   return (
-    logTypes.map((type, index ) => {
-      if (!selectedLog[type].length) return null;
-
-      return (
-        <Card key={index}>
-          <Header borderless transparent>
-            <Header.Heading>
-              <Header.Title>
-              <H3 asH4>{type}</H3>
-            </Header.Title>
-            </Header.Heading>
-          </Header>
-          <Card.Content>
-            <List divided>
-              {selectedLog[type].map((entry, index) => {
-                return logEntry(entry, index)
-              })}
-            </List>
-          </Card.Content>
-        </Card>
-      )
+    <>
+      {
+        Object.keys(ElmStates).map((type, index ) => {
+          return (
+            <Card key={index}>
+              <Header borderless transparent>
+                <Header.Heading>
+                  <Header.Title>
+                  <H3 asH4>{type}</H3>
+                </Header.Title>
+                </Header.Heading>
+              </Header>
+              <Card.Content>
+                <List divided>
+                  {ElmStates[type].map((entry, index) => {
+                    return logEntry(entry, index)
+                  })}
+                </List>
+              </Card.Content>
+            </Card>
+          )
+        })
       }
-    )
+    </>
   )
 }
 

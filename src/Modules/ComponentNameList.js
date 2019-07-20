@@ -2,36 +2,55 @@ import React from 'react';
 import { List, Chip } from 'cobalt-react-components';
 import '../styles.css';
 
+function returnChip(state, label, name) {
+  let chipState = {}
+  chipState[state]  = true
 
-function processChips(states) {
-  if(states.indexOf('breakingChange') !== -1) {
-    return <Chip danger={true} >Breaking Change</Chip>
-  } else if (states.indexOf('changed') !== -1 || states.indexOf('fixed') !== -1){
-    return <Chip warning={true}>Warning</Chip>
+  return (
+    <List.Item.Content minimal data-value={name}>
+      <Chip {...chipState}>{label}</Chip>
+    </List.Item.Content>
+   )
+}
+
+function processChips(states, name) {
+  if(states) {
+    const state = Object.keys(states)[0]
+
+    if(states[state].length) {
+      if(state === 'breakingChange') {
+        return returnChip('danger','Breaking Change', name)
+      } else if (state === 'changed' || states === 'fixed'){
+        return returnChip('warning','Warning', name)
+      } else {
+        return returnChip('success','Success', name)
+      }
+    }
   } else {
-    return <Chip success={true}>Success</Chip>
+    return returnChip('success','Success', name)
   }
 }
 
-function processList(compList, onClick, selected) {
-  return compList.map((comp, index) => {
+function processList(componentStates, onClick, selected) {
+  return componentStates.map((comp, index) => {
+    const {name, states} = comp
     return(
-      <List.Item key={index} onClick={onClick} active={comp.name === selected}>
-        <List.Item.Content truncated>{comp.name}</List.Item.Content>
-        <List.Item.Content minimal>
-          {processChips(comp.states)}
-        </List.Item.Content>
+      <List.Item key={index} onClick={onClick} active={name === selected}>
+        <List.Item.Content truncated data-value={name}>{name}</List.Item.Content>
+        {processChips(states, name)}
       </List.Item>
     )
   });
 }
 
-const ComponentNameList = ({compList, onClick, selected}) => {
-  return (
-    <List>
-      {processList(compList, onClick, selected)}
-    </List>
-  );
+const ComponentNameList = ({componentStates, compList, onClick, selected}) => {
+  if(componentStates){
+    return (
+      <List>
+        {processList(componentStates, onClick, selected)}
+      </List>
+    );
+  }
 }
 
 export default ComponentNameList;

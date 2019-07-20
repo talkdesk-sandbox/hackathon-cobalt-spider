@@ -5,22 +5,37 @@ import { Page, Grid } from 'cobalt-react-components';
 import ComponentHeader from '../Modules/ComponentHeader';
 import ComponentNameList from '../Modules/ComponentNameList';
 import ComponentLog from '../Modules/ComponentLog';
+import getMajorVersion from '../helpers/getMajorVersion'
 import '../styles.css';
 
-function processComponentStatus(compList, log) {
-  if (log && compList) {
-    let compStates = []
-    for ( let i = 0; i < compList.length; i++ ) {
-      const compName = compList[i]
-      const compEntrys = log[compName]
-      const entryTypes = Object.keys(compEntrys)
-      const entrysWithContent = entryTypes.filter( item => compEntrys[item].length)
+function initComponentStatus(changeLog, currentProjVersion) {
+  const compList = Object.keys(changeLog)
 
-      compStates.push({ 'name': compName, 'states': entrysWithContent ? entrysWithContent : undefined, stateLength: entrysWithContent })
-    }
+  let newState = []
+  compList.forEach((logObject) => {
+    let componentObjet = {}
+    componentObjet.name = logObject
 
-    return compStates
-  }
+    const entries = changeLog[logObject]
+    const entryKeys = Object.keys(entries)
+
+    entryKeys.forEach((entry, index) => {
+      if (entries[entry].length){
+
+        const logs = entries[entry].filter((ent) => {
+          return getMajorVersion(ent.version) > getMajorVersion(currentProjVersion)
+        })
+
+        if(logs.length) {
+          componentObjet.states = {}
+          componentObjet.states[entryKeys[index]] = logs
+        }
+      }
+    })
+    newState.push(componentObjet)
+  })
+
+  return newState
 }
 
 class ProjectComponents extends React.Component  {
@@ -29,13 +44,12 @@ class ProjectComponents extends React.Component  {
 
     this.state = {
       cobaltCurrentVersion: '27.0.0',
-      CompListStatus: processComponentStatus(components, changeLog),
-      selected: components[6],
+      selected: components[0],
       project: {}
     }
   }
 
-  componentDidMount () {
+  componentWillMount () {
     let currentProject = [{
       name: 'Default project',
       description: 'Just another project',
@@ -53,12 +67,19 @@ class ProjectComponents extends React.Component  {
         name: currentProject[0].name,
         description: currentProject[0].description,
         cobaltVersion: currentProject[0].cobalt_version
-      }
+      },
+      CompListStatus: initComponentStatus(changeLog, currentProject[0].cobalt_version )
     })
   }
 
   handleListSelect = (event) => {
-    this.setState({ selected: event.target.innerText })
+    let newState
+
+    !event.target.hasAttribute('data-value')
+    ? newState = event.target.parentNode.getAttribute('data-value')
+    : newState = event.target.innerText
+
+    this.setState({ selected: newState })
   }
 
   render () {
@@ -82,8 +103,8 @@ class ProjectComponents extends React.Component  {
                         <Grid.Column>
                           <ComponentNameList
                             onClick={this.handleListSelect}
-                            compList={CompListStatus}
                             selected={this.state.selected}
+                            componentStates={CompListStatus}
                             />
                         </Grid.Column>
                       </Grid.Group>
@@ -96,8 +117,8 @@ class ProjectComponents extends React.Component  {
                       <Grid fullWidth>
                         <ComponentLog
                           selected={this.state.selected}
-                          changeLog={changeLog}
-                          compStatus={CompListStatus}/>
+                          componentStates={CompListStatus}
+                          />
                       </Grid>
                     </div>
                   </div>
