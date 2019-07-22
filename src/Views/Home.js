@@ -52,31 +52,35 @@ class Home extends React.Component {
       .then((projs) => {
         projs.forEach((proj) => {
           repoAPI('Talkdesk', proj.name).getContents('master', 'package.json')
-          .then(({ data }) => {
-            let version = getVersion(data);
+            .then(({ data }) => {
+              let version = getVersion(data);
 
-            if (!version) return;
+              if (!version) return;
 
-            proj.cobalt_version = getVersion(data);
-            this.validProjects.push(proj);
-            this.setProjectListState(this.validProjects);
-            window.localStorage.setItem(CO_SPIDER_PROJECT_LIST_LS_KEY, JSON.stringify(this.validProjects));
-          }, (err) => {
-            console.log(err);
-            proj.cobalt_version = '0.0.0';
-          });
-      });
-    })
+              proj.cobalt_version = getVersion(data);
+              this.validProjects.push(proj);
+              this.setProjectListState(this.validProjects);
+              window.localStorage.setItem(CO_SPIDER_PROJECT_LIST_LS_KEY, JSON.stringify(this.validProjects));
+            }, (err) => {
+              console.log(err);
+              proj.cobalt_version = '0.0.0';
+            });
+        });
+      })
   }
 
   getProjectList = () => {
     const projects = JSON.parse(window.localStorage.getItem(CO_SPIDER_PROJECT_LIST_LS_KEY));
-
     if (projects && projects.length > 0) {
       this.setProjectListState(projects);
     } else {
       this.buildProjectList(1);
       this.buildProjectList(2);//TODO: FIX ME
+      this.buildProjectList(3);//TODO: FIX ME
+      this.buildProjectList(4);//TODO: FIX ME
+      this.buildProjectList(5);//TODO: FIX ME
+      this.buildProjectList(6);//TODO: FIX ME
+      this.buildProjectList(7);//TODO: FIX ME
     }
   }
 
@@ -98,29 +102,29 @@ class Home extends React.Component {
         <Page.Content>
           {
             this.state.isLoading
-            ? (
-              <div className="co--push-center" style={{ height: '100%' }}>
-                <Loader large>Loading...</Loader>
-              </div>
-            )
-            : ( this.state.projects.length !== 0
               ? (
-                <div className="cs--scroll-hack-list">
-                  <Grid fullWidth>
-                    <HomeTable projects={this.state.projects} />
-                  </Grid>
-                </div>
-              )
-              : (
                 <div className="co--push-center" style={{ height: '100%' }}>
-                  <EmptyWidget
-                    title='Oops!'
-                    message={`You either don't have the correct Github permissions or projects using Cobalt-React-Components.`}>
-                    <Icon name={Icon.CLOSE_OUTLINE} large color={Color.gray[500]} />
-                  </EmptyWidget>
+                  <Loader large>Loading...</Loader>
                 </div>
               )
-            )
+              : (this.state.projects.length !== 0
+                ? (
+                  <div className="cs--scroll-hack-list">
+                    <Grid fullWidth>
+                      <HomeTable projects={this.state.projects} />
+                    </Grid>
+                  </div>
+                )
+                : (
+                  <div className="co--push-center" style={{ height: '100%' }}>
+                    <EmptyWidget
+                      title='Oops!'
+                      message={`You either don't have the correct Github permissions or projects using Cobalt-React-Components.`}>
+                      <Icon name={Icon.CLOSE_OUTLINE} large color={Color.gray[500]} />
+                    </EmptyWidget>
+                  </div>
+                )
+              )
           }
         </Page.Content>
       </Page>
