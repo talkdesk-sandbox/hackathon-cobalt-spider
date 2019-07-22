@@ -62,6 +62,7 @@ class Home extends React.Component {
           }, (err) => {
             console.log(err);
             proj.cobalt_version = '0.0.0';
+            this.setState({ projects: [], isLoading: false });
           });
       });
     })
