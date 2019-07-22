@@ -21,13 +21,13 @@ function processChips(states, name) {
       if(state === 'breakingChange') {
         return returnChip('danger','Breaking Change', name)
       } else if (state === 'changed' || states === 'fixed'){
-        return returnChip('warning','Warning', name)
+        return returnChip('warning','Changed/Fixed', name)
       } else {
-        return returnChip('success','Success', name)
+        return returnChip('success','Added', name)
       }
     }
   } else {
-    return returnChip('success','Success', name)
+    return returnChip('success','Minors', name)
   }
 }
 
