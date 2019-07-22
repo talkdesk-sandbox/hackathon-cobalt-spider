@@ -118,7 +118,7 @@ class ProjectComponents extends React.Component  {
                         <ComponentLog
                           selected={this.state.selected}
                           componentStates={CompListStatus}
-                          />
+                        />
                       </Grid>
                     </div>
                   </div>

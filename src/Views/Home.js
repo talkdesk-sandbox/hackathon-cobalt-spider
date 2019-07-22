@@ -1,11 +1,10 @@
 import React from 'react';
 import { Color, EmptyWidget, Grid, Icon, Loader, Page } from 'cobalt-react-components';
-import Atlas from '../Modules/Atlas';
 import HomeHeader from '../Modules/HomeHeader';
 import HomeToolbar from '../Modules/HomeToolbar';
 import HomeTable from '../Modules/HomeTable';
 import '../styles.css';
-import { projectAPI, repoAPI, userReposAPI } from '../api/index';
+import { repoAPI, userReposAPI } from '../api/index';
 
 const CO_SPIDER_PROJECT_LIST_LS_KEY = 'co-spider-cached-project-list';
 
@@ -93,8 +92,7 @@ class Home extends React.Component {
 
   render() {
     return (
-      <Atlas>
-        <Page backgroundColor={Color.background.gray[200]}>
+      <Page backgroundColor={Color.background.gray[200]}>
         <HomeHeader />
         <HomeToolbar projects={this.state.projects} />
         <Page.Content>
@@ -126,7 +124,6 @@ class Home extends React.Component {
           }
         </Page.Content>
       </Page>
-      </Atlas>
     );
   }
 }
