@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import CobaltRoot from 'cobalt-react-components';
+import Atlas from './Modules/Atlas';
 import Home from './Views/Home';
 import ProjectComponents from './Views/ProjectComponents';
 import './index.css';
@@ -14,10 +15,12 @@ serviceWorker.unregister();
 
 ReactDOM.render(
   <CobaltRoot>
-    <BrowserRouter>
-      <Route exact path="/" component={Home}/>
-      <Route exact path="/project-components/:id" component={ProjectComponents}/>
-    </BrowserRouter>
+    <Atlas>
+      <BrowserRouter>
+        <Route exact path="/" component={Home}/>
+        <Route exact path="/project-components/:id" component={ProjectComponents}/>
+      </BrowserRouter>
+    </Atlas>
   </CobaltRoot>,
   document.getElementById('root')
 );
