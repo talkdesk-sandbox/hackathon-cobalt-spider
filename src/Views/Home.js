@@ -6,6 +6,8 @@ import HomeTable from '../Modules/HomeTable';
 import '../styles.css';
 import { projectAPI, repoAPI, userReposAPI } from '../api/index';
 
+const CO_SPIDER_PROJECT_LIST_LS_KEY = 'co-spider-cached-project-list';
+
 function getPackageVersion(deps) {
   return deps && deps.hasOwnProperty('cobalt-react-components')
     ? deps['cobalt-react-components'].split('#v')[1]
@@ -43,6 +45,8 @@ class Home extends React.Component {
   }
 
   buildProjectList = (index) => {
+    // if (window.localStorage.getItem(CO_SPIDER_PROJECT_LIST_LS_KEY)) return;
+
     userReposAPI({
       type: 'all',
       page: index.toString()
@@ -58,19 +62,25 @@ class Home extends React.Component {
             proj.cobalt_version = getVersion(data);
             this.validProjects.push(proj);
             this.setProjectListState(this.validProjects);
-
+            window.localStorage.setItem(CO_SPIDER_PROJECT_LIST_LS_KEY, JSON.stringify(this.validProjects));
           }, (err) => {
             console.log(err);
             proj.cobalt_version = '0.0.0';
-            this.setState({ projects: [], isLoading: false });
+            // this.setState({ projects: [], isLoading: false });
           });
       });
     })
   }
 
   getProjectList = () => {
-    this.buildProjectList(1);
-    this.buildProjectList(2);//TODO: FIX ME
+    const projects = JSON.parse(window.localStorage.getItem(CO_SPIDER_PROJECT_LIST_LS_KEY));
+
+    if (projects && projects.length > 0) {
+      this.setProjectListState(projects);
+    } else {
+      this.buildProjectList(1);
+      this.buildProjectList(2);//TODO: FIX ME
+    }
   }
 
   setProjectListState = (projects) => {
