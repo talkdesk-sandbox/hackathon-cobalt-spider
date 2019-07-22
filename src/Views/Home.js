@@ -45,8 +45,6 @@ class Home extends React.Component {
   }
 
   buildProjectList = (index) => {
-    // if (window.localStorage.getItem(CO_SPIDER_PROJECT_LIST_LS_KEY)) return;
-
     userReposAPI({
       type: 'all',
       page: index.toString()
@@ -66,7 +64,6 @@ class Home extends React.Component {
           }, (err) => {
             console.log(err);
             proj.cobalt_version = '0.0.0';
-            // this.setState({ projects: [], isLoading: false });
           });
       });
     })
