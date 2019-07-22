@@ -2,11 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Chip, H4, Icon, Paragraph, Table } from 'cobalt-react-components';
 import getMajorVersion from '../helpers/getMajorVersion'
+import semver from 'semver'
 import '../styles.css';
 
-const onSortDirectionChange = () => {} // TO DO
 
-const RepoRow = ({title, description, link, repoVersion, repoLink}) => {
+
+const RepoRow = ({ title, description, link, repoVersion, repoLink, status }) => {
   const versionLag = getMajorVersion(window.COBALT_VERSION) - getMajorVersion(repoVersion);
 
   const statusProps = (versionLag) => (
@@ -17,25 +18,23 @@ const RepoRow = ({title, description, link, repoVersion, repoLink}) => {
     }
   )
 
-  const stateText = versionLag === 0
-    ? 'Updated'
-    : versionLag <= 2
-      ? 'Lagging'
-      : 'Outdated'
-
   return (
     <Table.Row>
-      <Table.Data truncated>
+      <Table.Data>
         <Link to={link}>
           <H4>
             {title}
-            <Chip {...statusProps(versionLag)}>{repoVersion}</Chip>
           </H4>
           <Paragraph truncated microcopy>{description}</Paragraph>
         </Link>
       </Table.Data>
+      <Table.Data>
+        <Chip {...statusProps(versionLag)}>{repoVersion}</Chip>
+      </Table.Data>
+      <Table.Data>
+        <Chip {...statusProps(versionLag)}>{status}</Chip>
+      </Table.Data>
       <Table.ActionData>
-        <Chip {...statusProps(versionLag)}>{stateText}</Chip>
         <a href={repoLink} className="co-button co--small" target="_blank" rel="noopener noreferrer">
           <Icon name={Icon.OPEN_IN_NEW} />
         </a>
@@ -45,42 +44,113 @@ const RepoRow = ({title, description, link, repoVersion, repoLink}) => {
   )
 }
 
-const HomeTable = ({ projects = [] }) => {
-  return (
-    <>
-    <Table lightBubbleRows hoverRows>
-      <Table.Head>
-        <Table.Row>
-          <Table.Header
-            width={Table.Data.WIDTH[50]}
-            sortable
-            defaultSortDirection={Table.Header.SORT_DIRECTION.DEFAULT}
-            onSortDirectionChange={onSortDirectionChange}>Project / Current Version</Table.Header>
-          <Table.Header
-          width={Table.Data.WIDTH[50]}>
-          </Table.Header>
-        </Table.Row>
-      </Table.Head>
-      <Table.Body>
-        {
-          projects.map((proj, index) => {
-            return (
-              <RepoRow
-              title={proj.full_name}
-              description={proj.description || ''}
-              link={`project-components/${proj.name}`}
-              repoLink={proj.html_url}
-              repoVersion={proj.cobalt_version || '27.0.0'}
-              key={index}
-              />
-            )
-          })
-        }
-      </Table.Body>
-    </Table>
-    <div style={{ height: 40 }} />
-    </>
-  )
+class HomeTable extends React.Component {
+  constructor(props) {
+    super(props)
+    let originalData = this.props.projects.map(element => {
+      const versionLag = getMajorVersion(window.COBALT_VERSION) - getMajorVersion(element.cobalt_version || '27.0.0');
+      const stateText = versionLag === 0
+        ? 'Updated'
+        : versionLag <= 2
+          ? 'Lagging'
+          : 'Outdated'
+      element['status'] = stateText
+      return element
+    }).slice().sort((a, b) => semver.gt(a['cobalt_version'], b['cobalt_version']) ? -1 : 1)
+
+    this.state = {
+      tableData: originalData,
+      originalData: originalData
+    }
+  }
+
+  createRow = (element, index) => {
+    return (
+      <RepoRow
+        title={element.full_name}
+        description={element.description || ''}
+        link={`project-components/${element.name}`}
+        repoLink={element.html_url}
+        repoVersion={element.cobalt_version || '27.0.0'}
+        status={element.status}
+        key={index}
+      />
+    )
+  }
+
+  onSortDirectionChange = (propName) => (sortDirection) => {
+    const reorderedTable = this.sortData(propName, sortDirection)
+    this.setState({
+      tableData: reorderedTable
+    })
+
+  }
+
+  sortByInteger(propName) {
+    let reorderedTableData = this.state.originalData.slice()
+
+    reorderedTableData.sort((a, b) => semver.lt(a[propName], b[propName]) ? -1 : 1)
+
+    return reorderedTableData
+  }
+
+  sortByString(propName) {
+    let reorderedTableData = this.state.originalData.slice()
+    reorderedTableData.sort(function (a, b) {
+      return a[propName].localeCompare(b[propName])
+    })
+
+    return reorderedTableData
+  }
+
+  sortData(propName, sortDirection) {
+    if (sortDirection === Table.Header.SORT_DIRECTION.DEFAULT) {
+      return this.state.originalData
+    }
+
+    let reorderedTable
+    switch (propName) {
+      case 'cobalt_version':
+        reorderedTable = this.sortByInteger(propName)
+        break
+      default:
+        reorderedTable = this.sortByString(propName)
+    }
+
+    return sortDirection === Table.Header.SORT_DIRECTION.UP ? reorderedTable : reorderedTable.reverse()
+  }
+
+  render() {
+    return (
+      <Table hoverRows sortable bubbleRows>
+        <Table.Head>
+          <Table.Row>
+            <Table.Header
+              sortable
+              defaultSortDirection={Table.Header.SORT_DIRECTION.DEFAULT}
+              onSortDirectionChange={this.onSortDirectionChange('full_name')}>Project</Table.Header>
+            <Table.Header
+              sortable
+              defaultSortDirection={Table.Header.SORT_DIRECTION.DOWN}
+              onSortDirectionChange={this.onSortDirectionChange('cobalt_version')}>Current version</Table.Header>
+            <Table.Header
+              sortable
+              defaultSortDirection={Table.Header.SORT_DIRECTION.DEFAULT}
+              onSortDirectionChange={this.onSortDirectionChange('status')}>Status</Table.Header>
+            <Table.Header>
+            </Table.Header>
+          </Table.Row>
+        </Table.Head>
+        <Table.Body>
+          {
+            this.state.tableData.map((proj, index) => (
+              this.createRow(proj, index)
+            ))
+          }
+        </Table.Body>
+      </Table>
+    )
+  }
 }
 
 export default HomeTable;

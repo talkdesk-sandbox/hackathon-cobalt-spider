@@ -14,19 +14,19 @@ const HomeHeader = () => {
         </Header.Description>
       </Header.Heading>
       <Header.Actions>
-      <Media alignVerticalCenter>
-        <Image
-          src="http://cobalt.talkdeskapp.com/assets/images/logo-dark-basic.svg"
-          alt="cobalt"
-          height={45}
-        />
-        <p className="co--microcopy" style={{marginBottom: 0}}>
-        Current Version
+        <Media alignVerticalCenter>
+          <Image
+            src="http://cobalt.talkdeskapp.com/assets/images/logo-dark-basic.svg"
+            alt="cobalt"
+            height={45}
+          />
+          <p className="co--microcopy" style={{ marginBottom: 0 }}>
+            Current Version
         </p>
-        <Chip info large>
-          {`v${window.COBALT_VERSION}`}
-        </Chip>
-      </Media>
+          <Chip info large>
+            {window.COBALT_VERSION}
+          </Chip>
+        </Media>
       </Header.Actions>
     </Header>
   );
