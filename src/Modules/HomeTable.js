@@ -47,6 +47,7 @@ const RepoRow = ({title, description, link, repoVersion, repoLink}) => {
 
 const HomeTable = ({ projects = [] }) => {
   return (
+    <>
     <Table lightBubbleRows hoverRows>
       <Table.Head>
         <Table.Row>
@@ -77,6 +78,8 @@ const HomeTable = ({ projects = [] }) => {
         }
       </Table.Body>
     </Table>
+    <div style={{ height: 40 }} />
+    </>
   )
 }
 
