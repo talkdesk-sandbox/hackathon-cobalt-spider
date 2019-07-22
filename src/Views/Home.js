@@ -1,5 +1,6 @@
 import React from 'react';
 import { Color, EmptyWidget, Grid, Icon, Loader, Page } from 'cobalt-react-components';
+import Atlas from '../Modules/Atlas';
 import HomeHeader from '../Modules/HomeHeader';
 import HomeToolbar from '../Modules/HomeToolbar';
 import HomeTable from '../Modules/HomeTable';
@@ -92,7 +93,8 @@ class Home extends React.Component {
 
   render() {
     return (
-      <Page backgroundColor={Color.background.gray[200]}>
+      <Atlas>
+        <Page backgroundColor={Color.background.gray[200]}>
         <HomeHeader />
         <HomeToolbar projects={this.state.projects} />
         <Page.Content>
@@ -124,6 +126,7 @@ class Home extends React.Component {
           }
         </Page.Content>
       </Page>
+      </Atlas>
     );
   }
 }
