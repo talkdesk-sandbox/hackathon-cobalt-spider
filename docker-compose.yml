@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  common: &BASE
+    build: &BASE_BUILD
+      context: .
+      args:
+        - BUNDLE_GITHUB__COM=${BUNDLE_GITHUB__COM}
+
+  dev:
+    <<: *BASE
+    ports:
+      - "3000:3000"
+    environment:
+      REACT_APP_TALKDESK_API_URL: http://localhost:8080/
+    command: yarn start
+
+  tests:
+    <<: *BASE
+    command: bash -c 'CI=true yarn test'
+
+  build-stg:
+    <<: *BASE
+    env_file: .env.staging
+    command: yarn build
+
+  build-qa:
+    <<: *BASE
+    env_file: .env.qa
+    command: yarn build
+
+  build-prd:
+    <<: *BASE
+    env_file: .env.production
+    command: yarn build

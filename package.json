@@ -1,21 +1,27 @@
 {
-  "name": "hackathon-cobalt-spider",
+  "name": "cobalt-spider",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "cobalt-react-components": "https://github.com/Talkdesk/cobalt-react-components.git#v27.0.0",
-    "github-api": "^3.2.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.1",
-    "semver": "^6.2.0",
-    "react-scripts": "3.0.1"
+    "@atlas/react-scripts": "0.2.2",
+    "@atlas/sdk": "^0.5.1",
+    "axios": "^0.18.0",
+    "cobalt-react-components": "https://github.com/Talkdesk/cobalt-react-components.git#v28.6.1",
+    "i18next": "^15.0.9",
+    "i18next-xhr-backend": "^2.0.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-i18next": "^10.8.1"
+  },
+  "devDependencies": {
+    "@atlas/cli": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "atlas-react-scripts start",
+    "build": "atlas-react-scripts build",
+    "test": "atlas-react-scripts test",
+    "eject": "atlas-react-scripts eject",
+    "storybook": "atlas-react-scripts storybook"
   },
   "eslintConfig": {
     "extends": "react-app"
