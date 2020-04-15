@@ -4,6 +4,9 @@
 /src/api/github_token.js
 atlas-dev-configuration.json
 
+#repositories
+/projects/repositories
+
 # dependencies
 /node_modules
 /.pnp
