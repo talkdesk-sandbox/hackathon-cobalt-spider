@@ -1,26 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CobaltRoot from 'cobalt-react-components';
-import Atlas from './Modules/Atlas';
-import Home from './Views/Home';
-import ProjectComponents from './Views/ProjectComponents';
-import './index.css';
-import { BrowserRouter, Route } from 'react-router-dom';
-import * as serviceWorker from './serviceWorker';
+import App from './App';
+import AtlasSdk from '@atlas/sdk';
+import TokenGenerator from './config/token.generator'
+import configI18n from './config/i18n'
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+async function onLaunch() {
+  await configI18n();
+}
 
-ReactDOM.render(
-  <CobaltRoot>
-    <Atlas>
-      <BrowserRouter>
-        <Route exact path="/" component={Home}/>
-        <Route exact path="/project-components/:id" component={ProjectComponents}/>
-      </BrowserRouter>
-    </Atlas>
-  </CobaltRoot>,
-  document.getElementById('root')
-);
+async function init() {
+  const atlas = await AtlasSdk.init({
+    lifecycle: {
+      onLaunch
+    }
+  });
+
+  TokenGenerator.initialize(atlas.authorization.getAccessToken);
+
+  renderApp();
+}
+
+function renderApp() {
+  ReactDOM.render(<App />, document.getElementById('root'));
+}
+
+init();
+

@@ -1,0 +1,18 @@
+{
+  "id": "75f102b370c94e579a83816608ffc5da",
+  "name": "cobalt-spider",
+  "version": "0.0.0",
+  "sdk-version": "0",
+  "capabilities": [
+    "authorization"
+  ],
+  "scopes": [
+    "openid"
+  ],
+  "assets": {
+    "icon": "http://cobalt-design.talkdeskapp.com/assets/images/logo-white.svg"
+  },
+  "render": "canvas",
+  "src": "http://localhost:3000",
+  "slug": "cobalt-spider"
+}

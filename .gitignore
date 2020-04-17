@@ -2,6 +2,7 @@
 
 #files
 /src/api/github_token.js
+atlas-dev-configuration.json
 
 # dependencies
 /node_modules
