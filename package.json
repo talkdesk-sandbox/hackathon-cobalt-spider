@@ -5,7 +5,7 @@
   "dependencies": {
     "@atlas/react-scripts": "0.2.2",
     "@atlas/sdk": "^0.5.1",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "cobalt-react-components": "https://github.com/Talkdesk/cobalt-react-components.git#v28.6.1",
     "i18next": "^15.0.9",
     "i18next-xhr-backend": "^2.0.1",
